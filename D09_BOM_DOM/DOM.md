@@ -1,5 +1,6 @@
 ### DOM: Document Object Model
 * DOM:文档对象模型，遵循W3C标准
+* ![DOM](images/dom.gif)
 ---
 * DOM元素：查询
     * getElementById():通过ID获取HTML中的元素，返回值是一个元素
