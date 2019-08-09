@@ -8,26 +8,25 @@
 ### 条件语句
 * 语法：
 ```javascript
-    if(2>3){
-        //Coding....
-        //关键字：if
-        //括号内是判断条件
-        //大括号是：条件语句块
-    }
+//关键字：if
+//括号内是判断条件
+//大括号是：条件语句块
+if(2>3){
+    //TODO:Coding....
+}
 ```
 * 使用：
 ---
 ### 分支语句
 * 语法：
 ```javascript
+//关键字：if & else
+//括号内是判断条件
+//大括号是：条件语句块
 if(2>3){
-    //Coding....
-    //关键字：if
-    //括号内是判断条件
-    //大括号是：条件语句块
-}else{
-    //关键字:else
-    //分支语句
+    //TODO:Coding....
+}else{//分支语句
+    //TODO:Coding....
 }
 ```
 * 使用：
@@ -35,14 +34,17 @@ if(2>3){
 ### else if 选择分支语句
 * 语法：
 ```javascript
+//关键字：if & else if & else
+//括号内是判断条件
+//大括号是：条件语句块
 if(2>3){
-    
+    //TODO:Coding....
 }else if(2>1){
-    
+    //TODO:Coding....
 }else if(2>0){
-    
+    //TODO:Coding....
 }else{
-    
+    //TODO:Coding....
 }
 ```
 * 使用：
