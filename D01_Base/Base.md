@@ -171,6 +171,7 @@
    * 拓展：toFixed()   返回值：string类型;
 * 显式数据类型转换、也叫手动数据类型转换、也叫强制数据类型转换
 ```javascript
+//隐式数据类型转换
 var a=10,b="10";
 console.log(a+b);//输出结果为1010;这里的a自动转换为字符串类型
 console.log(a-b);//输出结果为0;这里的b自动转换为数字类型。
@@ -178,6 +179,17 @@ console.log(a-b);//输出结果为0;这里的b自动转换为数字类型。
 * 第一个console.log中+号javascript中只有两个作用，一个表示数学运算符，另外一个还表示字符串连接符
 * 第二个console.log中-号在javascript中只有一个作用，就是数学减
 * */
+
+//显式数据类型转换
+var c=10;
+var d=String(10);
+console.log(typeof d);
+
+//将字符串转换成数字
+//Number();
+//parseInt();
+//parseFloat();
+//toFixed();
 ```
 ---
 ### 检测数据类型
@@ -192,7 +204,7 @@ console.log(typeof(_a));
 //判断变量是否是字符串
 console.log(typeof(_a)==="string");
 //判断是否不是一个数字
-console.log(isNaN(_a));//NaN:表示Not a Number 非一个数字
+console.log(isNaN(_a));//NaN:表示Not a Number 一个非数字
 ```
 ---
 ### Javascript 运算符
