@@ -1,12 +1,17 @@
-### 日期对象
-* 语法：new Date();
-* 常见的方法：
-* ----getDate()	从 Date 对象返回一个月中的某一天 (1 ~ 31)。
-* ----getDay()	从 Date 对象返回一周中的某一天 (0 ~ 6)。
-* ----getMonth()	从 Date 对象返回月份 (0 ~ 11)。
-* ----getFullYear()	从 Date 对象以四位数字返回年份。
-* ----getHours()	返回 Date 对象的小时 (0 ~ 23)。
-* ----getMinutes()	返回 Date 对象的分钟 (0 ~ 59)。
-* ----getSeconds()	返回 Date 对象的秒数 (0 ~ 59)。
-* ----getMilliseconds()	返回 Date 对象的毫秒(0 ~ 999)。
-* ----getTime()	返回 1970 年 1 月 1 日至今的毫秒数。
+### Date介绍
+* 作用：对象用于处理日期和时间
+* 通过一个关键字：new Date()这样的方式创建一个日期对象;
+    * 调用Date类的构造函数
+    * 构造函数的作用：用来构造对象
+* 日期对象：
+    * 年月日-时分秒-毫秒，星期几
+    * getFullYear();
+    * getMonth():比实际月份小1。
+    * getDate();//得到当前日期
+    * getHours();//得到小时
+    * getMinutes();//得到分钟数
+    * getSeconds();//得到秒
+    * getMilliseconds();//得到当前的多少毫秒
+    * getDay();//返回值是周几
+    * getTime();//从1970-01-01到今天，相差事件的总毫秒数;getTime很有用
+
