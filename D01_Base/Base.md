@@ -25,7 +25,7 @@
 * 所有文件夹和文件不能使用中文，全部使用英文命名。可以使用readme.md文件备注
 —--
 ### 二阶段课程目标
-* 二阶段实现可以独立完成类似京东的电子商务平台
+* 二阶段实现可以独立完成类似京东、小米、格力的电子商务平台
 ---
 ### Javascript基础介绍
 * 又名：ECMAScript
@@ -43,7 +43,7 @@
 * 能够结合H5其他技术，开发出各种各样绚丽多彩的UI交互页面
 * Javascript 的作用：动画效果、数据交互、逻辑处理、一定程度分压。
 ---
-### Javascript 和 H5 之间到底是什么关系
+### Javascript 和 H5 之间的关系
 * 前端HTML、css、JavaScript。JavaScript依赖于HTML网页才能执行，不能单独执行。
 * JavaScript和H5的关系：H5包含JavaScript
 ---
@@ -57,6 +57,16 @@
 <html>
 <head>
 <title></title>
+<script type="text/javascript" src="outer.js"></script><!--推荐使用-->
+</head>
+<body></body>
+</html>
+```
+```html
+<html>
+<head>
+<title></title>
+<!--推荐使用-->
 <script type="text/javascript">
     var a=2;
     var b=3;
@@ -71,13 +81,29 @@
 <html>
 <head>
 <title></title>
-<script type="text/javascript" src="outer.js"></script>
 </head>
-<body></body>
+<body>
+<a href="javascript:alert('tip')"></a><!--不推荐-->
+<div onclick="javascript:alert('tip');">click this div</div><!--不推荐-->
+</body>
 </html>
 ```
 ---
-### Javascript 变量
+### 注释
+* 作用：解释代码的作用，不会对程序有任何影响，一般用于给自己或其他程序员阅读代码时给予帮助快速理解或回忆。
+* 单行注释：以 // 开头
+* 多行注释：以 /* 开始 */结束，不能嵌套
+```javascript
+//这是单行注释
+
+/*
+这是
+多行
+注释，中间不允许再有多行注释的符号
+*/
+```
+---
+### Javascript 变量（重点）
 * 变量：
     * 值可改变的标识符称之为变量
     * 标识符：具有标识意义的符号，例如路边的指示牌，就简称标牌。标牌上的符号称为标识符。
@@ -100,7 +126,7 @@
     * 关键字：当前已经有特殊意义的单词。
     * 保留字：未来可能用到的关键字。
 ---
-### 赋值符号的介绍
+### 赋值符号的介绍（重点）
 * =:赋值符号的作用让变量具有一个指定的值。变量名一定要在赋值符号的左边。
 ---
 ### 表达式介绍（扩展）
@@ -130,12 +156,12 @@
 * 网页中输出变量
 * 对话框弹出变量的值
 ---
-### Javascript 数据类型
-* number (基础数据类型)
-* string (基础数据类型)
-* boolean (基础数据类型)
-* null (常量)
-* undefined (常量)
+### Javascript 数据类型（重点）
+* number：数字类型 (基础数据类型)
+* string：字符串类型 (基础数据类型)
+* boolean：布尔类型 (基础数据类型)
+* null：对象类型 (常量：表示一个空值)
+* undefined：undefined类型 (常量：表示一个为定义的变量)
 * object (引用数据类型)
 ---
 ### 数据类型转换
@@ -144,10 +170,30 @@
    * Number数据类型转换和parseInt数据类型转换是有小数位区别的，都是可以转换成数字类型
    * 拓展：toFixed()   返回值：string类型;
 * 显式数据类型转换、也叫手动数据类型转换、也叫强制数据类型转换
+```javascript
+var a=10,b="10";
+console.log(a+b);//输出结果为1010;这里的a自动转换为字符串类型
+console.log(a-b);//输出结果为0;这里的b自动转换为数字类型。
+/**
+* 第一个console.log中+号javascript中只有两个作用，一个表示数学运算符，另外一个还表示字符串连接符
+* 第二个console.log中-号在javascript中只有一个作用，就是数学减
+* */
+```
+---
+### 检测数据类型
 * NaN：表示一个常量（Not a Number）
-* isNaN：检测参数是否是数字，或者是否能被转换成数字。
+* isNaN：检测参数是否不是数字，或者是否能被转换成数字。
     * 如果参数是字符串这里会发生一个隐式数据类型转换
-* typeof作用：检测数据类型，这个方法的返回值字符串。
+* typeof();作用：检测数据类型，这个方法的返回值字符串;
+```javascript
+//查看数据变量的数据类型
+var _a=10;
+console.log(typeof(_a));
+//判断变量是否是字符串
+console.log(typeof(_a)==="string");
+//判断是否不是一个数字
+console.log(isNaN(_a));//NaN:表示Not a Number 非一个数字
+```
 ---
 ### Javascript 运算符
 * 括号运算符：()
@@ -155,8 +201,9 @@
 * 非运算符：!
 
     * !""===true
-    * !"0"===false
     * !" "===false
+    * !0===true
+    * !"0"===false
     * !null===true
     * !undefined===true
 

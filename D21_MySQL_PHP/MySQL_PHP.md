@@ -9,7 +9,7 @@
 * 关系型数据库:每张表有固定的结构关系
 * 非关系型代表：MongoDB
 ```javascript
-/*mongondb 数据表中不需要有固定的结构关系[{
+/*mongodb 数据表中不需要有固定的结构关系[{
     ID:
     name:
 },{

@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="text/javascript">
+
         function fn(){
-            var _arr1=[8,5,0,3,1];
-            console.log(_arr1.slice(-2));
+            var _arr1=[8,95,0,31,1];
+            console.log(_arr1.splice(1,3,100,101));//删除下标索引从1开始的一个元素，并添加一个100到下标索引值为1的地方
+            console.log(_arr1);
         }
         fn();
     </script>

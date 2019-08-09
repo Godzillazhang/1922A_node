@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script type="text/javascript" src="Ajax2.js"></script>
+    <script type="text/javascript" src="Package/Ajax2.js"></script>
     <script type="text/javascript">
         // Ajax.request("GET","http://localhost:8080/HTML5/D21_MySQL_PHP/API/query.php",true,null,function(_data){
         //     console.log(_data);
@@ -28,13 +28,28 @@
         //         console.log(_data);
         //     }
         // });
-        Ajax.request({
-            api:"http://localhost:8080/HTML5/D21_MySQL_PHP/API/query.php",
+        window.onload=function(){
+            document.getElementById("load").onclick=function() {
+                Ajax.request({
+                    api: "http://localhost:8080/url/SignServlet",
+                    method:"get",
+                    send: {
+                        validate: document.getElementById("validateBox").value,
+                        user: "Ghost1001",
+                        sign: "Ghost102589"
+                    },
+                    success: function (_data) {
+                        console.log(_data);
+                    }
+                });
+            }
+        };
 
-        });
     </script>
 </head>
 <body>
-
+<img src="http://manager.mnetchain.com/url/ValidateServlet" alt="">
+<input type="text" id="validateBox">
+<input type="button" value="登陆" id="load">
 </body>
 </html>
