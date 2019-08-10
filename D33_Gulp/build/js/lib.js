@@ -1,0 +1,2 @@
+function Cart(){this.take=function(){},this.save=function(){},this.push=function(){},this.reduce=function(){}}
+function Slider(){this.create=function(){},this.move=function(){},this.calculate=function(){}}

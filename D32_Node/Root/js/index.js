@@ -1,0 +1,9 @@
+Ajax.request({
+    api:"../Root/interface/list01.js",
+    send:{
+        cmd:"interface"
+    },
+    success:function(_data){
+        console.log(_data);
+    }
+});
