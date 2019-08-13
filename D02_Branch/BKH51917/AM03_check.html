@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+            数据类型检测：typeof(); 返回值是：string
+        */
+        console.log(typeof(typeof(typeof(10))));//"number":string
+
+        //isNaN();//返回值：boolean; 是一个非数字。
+        console.log(isNaN("10"));//false
+        console.log(isNaN(10));//false
+        //isNaN方法会先将参数转成数字，如果转成功返回false，如果转不成功返回true
+        console.log(isNaN("abc"));//true;
+        console.log(isNaN(NaN));//true;
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

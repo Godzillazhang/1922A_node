@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+            数据类型转换
+                1.显式数据类型转换，强制数据类型转换，或者叫手动数据类型转换
+                2.隐式数据类型转换
+        */
+        //////将数字字符串转换成数字
+        var _char="10";
+        var _num=Number(_char);//读代码的时候就能看见的数据类型转换，叫显式数据类型转换
+        //var _num=_char;
+        console.log(typeof(_num));
+        console.log(typeof(_char));
+
+
+        ///将字符串转换成boolean类型
+        var _char02=" ";
+        var _boolean=Boolean(_char02);
+        console.log(_boolean);
+        //"0"->boolean===true;
+        //""->boolean===false;
+        //" "->boolean===true;
+
+
+        //////将非数字字符串转换成数字
+        var _NaN="a";
+        console.log(Number(_NaN));//NaN 表示 not a number （非 一个数字）
+
+
+        ///数字——>字符串
+        var _n=100;
+        console.log(typeof(String(_n)));
+
+
+        ////其他的显示数据类型转换方式：将字符串->数字
+        var _str="10.9";
+        console.log(Number(_str));
+        console.log(parseInt(_str));//转换成整数类型
+        console.log(parseFloat(_str));//转换成浮点类型
+
+        ///保留n位小数
+        var _float=Number(_str).toFixed(2);//toFixed(2);表六两位小数，返回值：string
+        console.log(_float);
+
+        //console.log(_str.toFixed(2));//error:数字字符串想保留两位小数必须先转成数字，再调用toFixed方法。
+        //_str.toFixed is not a function
+
+
+
+
+
+        ///隐式数据类型转换////////////////
+        var a=10;//数字长度4个字节。
+        var b="abc1234tyuiopwertyuikl";//字符串的长度默认初始长度为8个字节
+        //备注：字符串的长度是会自动增长的，如果字符串长度超过8个字节时，会翻倍增长
+        console.log(typeof(a+b));//在执行运算的过程中，a发生了隐式的数据类型转换。
+        console.log(typeof a);
+        //隐式数据类型转换的优先选择是将体积比较小的向体积比较大的类型转换。
+
+        var c="5";
+        console.log(a-c);//在执行减法运算的过程中，c->number;
+        //大的->小的 原因
+        //减法运算符在js中只表示数学运算符。所以a-c执行的数学计算。
+        //加法运算符在js中有个功能，1：表示数学加，2：表示字符串的链接符。
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

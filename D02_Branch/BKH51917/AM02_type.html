@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+            数据类型：6
+            Number (可以声明子集变量)
+            String (可以声明子集变量)
+            Boolean (可以声明子集变量)
+            ///上面属于基础数据类型
+            null 空对象值，自己就是一个固定不变的值。
+            undefined 未定定义，自己也是一个固定不变的值。
+            object 引用类型
+        */
+        /**
+            数据类型转换
+                1.显式数据类型转换、也叫强制数据类型转换、也叫手动数据类型转换。
+                2.隐式数据类型转换
+        */
+        //1.字符串->数字
+        var _s="10";
+        console.log(typeof(_s));
+        var _n=Number(_s);//发生了显式的数据类型转换，
+        // var _n=_s;
+        console.log(typeof(_n));
+
+        var _c="a";
+        console.log(Number(_c));//NaN:not a number 非一个数字。
+        console.log(Number(""));//0：记忆
+        console.log(Number(" "));//0：记忆
+
+        //2.数字转字符串
+        var _d=100;
+        var _str=String(_d);
+        console.log(typeof _str);
+
+
+        //3.string->boolean
+        console.log(Boolean(""));//false
+        console.log(Boolean(" "));//true
+        console.log(Boolean("abc"));//true
+        console.log(Boolean("0"));//true
+        //双引号或单引号中间不管有任何内容，->boolean 返回值：true;
+
+        //4.number->boolean
+        console.log(Boolean(0));//false
+        console.log(Boolean(-1));//true
+        console.log(Boolean(1));//true;
+        //在编程语言中非0即为真。
+
+
+        //Boolean->number
+        console.log(Number(true));//1
+        console.log(Number(false));//0
+        //true 在底层就是1
+        //false 在底层就是0
+
+        //Boolean->string
+        console.log(String(true));//"true"
+        console.log(String(false));//"false"
+
+
+        //字符串->number
+        var _a="10.9";
+        console.log(Number(_a));//10.9
+        console.log(parseInt(_a));//10 将字符串转换成整数
+        console.log(parseFloat(_a));//10.9; 将字符串数字转成浮点数字。
+        //精确到小数位后面两位
+        console.log(Number(_a).toFixed(2));//toFixed 方法式number类型的变量的方法，可以实现保留N位小数。返回值位字符串类型。
+
+
+        //隐式数据类型转换
+        var _t=10;//默认4个字节的长度。
+        var _y="10";//默认8个字节的长度。长度会自动翻倍增长。
+        console.log(_t+_y);//"10100" 运算过程中 _t 的值发生了数据类型转换。这种看不见的转换的方式叫隐式数据类型转换
+        //隐式数据类型转换，优先将小的数据类型转换成大的数据类型。
+
+        var _x="5";
+        console.log(_t-_x);//数字5; 运算过程中 _x 会转成数字。
+        //_x 转换成数字的原因式-表示的式数学运算，也就是减号只能表示数学运算
+        //而上面的+在js中有两个作用，1.表示数学运算，2.还可以表示字符串的链接符。
+
+        
+        console.log(_t-"a");//NaN 类型number
+
+        //双引号或单引号中间不管有任何内容，->boolean 返回值：true;
+        //在编程语言中非0即为真。
+        //隐式数据类型转换，优先将小的数据类型转换成大的数据类型。
+        //+号会将数字转成字符串，-会将字符串转成数字。
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

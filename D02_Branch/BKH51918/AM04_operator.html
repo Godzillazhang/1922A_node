@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //运算符
+        /**
+            数学运算符：+、-、*、/、%(取余，摩尔运算)
+            比较运算符：>、<、>=、<=、==、===、!=、!==  备注：比较运算符的返回值：boolean类型值
+            赋值运算符：=、+=、-= *= /= %=
+            逻辑运算符：! && ||
+            
+        */
+        console.log(1>=1);
+        console.log(1=="1");//true,双等于只比较值是否相等。
+        console.log(1==="1");//false,三个等于号表示绝对等于，比较值、类型、内存地址
+
+
+        //赋值运算符
+        var a=10;
+        var b=110;
+        a+=b;//a=a+b;
+        console.log(a,b);
+
+
+        //逻辑运算符
+        var a=0;
+        console.log(!0);//非零即为true
+        console.log(!"");//true;
+        console.log(!" ");//false;
+        console.log(!null);//true;
+        console.log(!undefined);//true;
+        console.log(!-1);//false;
+        console.log(!1);//false;
+
+        // && 与运算符
+        console.log(2+5 && 3);//3  从左往右算，如果左边为true，会继续运算右边，返回值为右边的值。
+        console.log(3 && 0);//0  从左往右计算，如果左边为true，会继续运算右边的表达式，同样返回右边的值。
+        console.log(0 && 3);//0 从左往右算，如果左边为false，不会继续运算右边的表达式，返回左边的值。
+        console.log(3 && 0 && 2);//0
+
+
+        // || 或运算符
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //数据类型检测
+        //1.typeof
+        // console.log(typeof(typeof(10)));//?
+
+        //2.isNaN();is 是 N not a Number 这个方法的返回值是：boolean
+        var a="10";
+        console.log(isNaN(a));//?==false; //在这里发生了一个隐式数据类型转换，先将参数隐式转换为数字，如果转成成功表示false。如果转换不成功返回true；
+        var b="a";
+        console.log(isNaN("a"));
+        //isNaN方法一般会与if语句配合使用。
+
+
+        //NaN
+        console.log(10-"a");//NaN表示not a number
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
