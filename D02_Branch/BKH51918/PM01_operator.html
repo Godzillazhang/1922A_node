@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+            逻辑运算符：! && ||
+        */
+        //逻辑或 || 运算符
+        console.log(2 || 3);//2  如果||运算符的左边为真，就不会继续运行右边的表达式
+        console.log(0 || 3);//3  如果||运算符的左边为假，会继续运行右边的表达式
+        console.log(3 || 0);//3 
+
+        console.log(8 || 0 && 3); //如果|| 和 && 的优先级是平级，先执行8||0===8，8&&3===3
+        //如果&&的优先级高，先执行0&&3===0 8||0===8;可以证明&& 的优先级高于||的优先级。
+
+        console.log(!0&&8);///==8//!非的优先级仅次与括号
+
+        console.log(2*!0);//2  非的优先级高于*运算符
+        console.log(2*3 && 8);//8
+
+
+
+
+        /****
+           单目运算：++（自增） --（自减） 
+           单目运算符：运算符的左右两边只有一个变量。
+           //传统的加减乘除也叫双目运算符
+        ***/
+        var a=10;
+        var b=a++;//b==10,a==11;右++不参与本次运算，将自身的值赋给b，然后自加1；
+        console.log(b,a);
+
+        var c=10;
+        var d=++c;//d===11,c===11;左++先自增1，然后将自身的值赋给d;
+        console.log(d,c);
+
+        var k=0;
+        console.log((k++)+k+(++k));//3
+        //console.log(10--);//Invalid left-hand side expression in postfix operation
+
+
+
+        //三目运算符：express?value1:value2,优先级高于赋值运算符。
+        var _value=2&&3?8+5*6:10;
+        console.log(_value);
+
+
+        // if(2>3){
+        //     _value=0;
+        // }else{
+        //     _value=10;
+        // }
+
+
+
+        //位运算
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
