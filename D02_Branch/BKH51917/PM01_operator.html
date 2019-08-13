@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+            运算符：
+            1.数学运算符：+ - * / %(取余，也叫摩尔运算夫)
+            2.比较运算符：> < >= <= == === != !==  比较运算符的返回值：boolean类型值
+            3.((2+3)*2)'
+            4.逻辑运算符：!(非)   &&(与)    ||(或者)
+        */
+        //逻辑运算符的使用
+        console.log(!0);//true;
+        console.log(!"0");//false;
+        console.log(!"");//true
+        console.log(!null);//true
+        console.log(!undefined);//true;
+
+
+
+        //&& 运算符：遇到false就会停止
+        console.log(2+8 && 3);//3 如果左边表达式为真，会继续运行右边的表达式，最终返回右边结果
+        console.log(3 && 0);//0 如果左边表达式为真，会继续运行右边的表达式，最终返回右边结果
+        console.log(0 && 3);//0 如果左边的表达式为假，会停止计算右边的表达式。最终返回左边的结果
+
+        console.log(2 && 7 && 0 && 8 && 9);//0
+
+
+        // || 运算符：
+        console.log(2||3);//2  如果 || 运算符左边为真，会立即停止计算右边的值，最终返回左边的值
+        console.log(0||3);//3  如果 || 运算符左边为假，会继续计算右边的表达式，最终返回右边的结果
+        console.log(3||0);//3  如果 || 运算符左边为真，会立即停止计算右边的值，最终返回左边的值
+
+
+        //证明非与或的优先级
+        console.log(8 || 2 && 3);//8
+        //如果是先运行或运算，前面个的表达式的值：8 || 2===8，再运行与运算：8 && 3===3；假设错误
+        //证明结果：先运行 2&&3===3,再运行 8||3===8;
+
+
+        console.log(3*8 && 2);//2
+        console.log(!0*8);//8 !的优先级大于乘法的优先级。所以非的优先级高于与的优先级。
+
+
+
+        /**
+        单目运算符：运算符左右两边只有一个变量的运算符
+        单目运算符：++(自增)  --(自减)
+        右++，不参与本次运算。
+        左++，先自增1，然后将自身的值赋给d。
+        **/
+        // var a=10;
+        // var b=a++;//a==11,b==10
+        // console.log(a,b);
+
+        // var c=10;
+        // var d=++c;//c==11,d==11;
+        // console.log(c,d);
+
+
+        // var k=0;
+        // console.log(k+++k+++k);//3
+        // console.log((k++)+(k++)+k);//3
+        // console.log((k++)+k+(++k));//3
+
+
+        
+        // 三目运算符：?: 问前面的值为true，则返回冒号前面的值，问前面的值为false，返回冒号后面的值。
+        var z=false?0:10;
+        console.log(z);//10
+
+        var y=2>3 && 8 ? (2*8<13-15+9*10?0:1) : (10);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
