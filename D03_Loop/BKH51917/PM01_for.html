@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        ///for循环的debug，
+        function f1(){
+            for(var i=0;i<=10;i++){
+                document.write(i);
+            }
+        }
+        //f1();
+
+        //1,100,2,200,3,300
+        //for循环的语法拓展
+        function f2(){
+            for(var i=1,n=100;i<10 && n<=500;i++,n+=100){
+                document.write(i+",");
+                document.write(n+"<br/>");
+            }
+        }
+        //f2();
+
+
+        //break && continue;表示继续下一次循环
+        function f3(){
+            for(var i=0;i<=10;i++){
+                if(i%2!==0){
+                    continue;//继续下一次循环，continue后面的语句不会被执行。
+                    //break;//结束当前循环。
+                }
+                document.write(i+",");
+            }
+        }
+        //f3();
+
+
+        //奇偶数的代码中+=赋值符号的应用
+        function f4(){
+            var i=0;
+            while((i+=2)<=100){
+                document.write(i+",");
+            }
+        }
+        //f4();
+        
+
+
+        //循环嵌套
+        //0-10的数输出10行
+        function f5(){
+            for(var n=0;n<10;n++){
+                for(var i=0;i<=10;i++){
+                    document.write(i+",");
+                }
+                document.write("<br/>");
+            }
+        }
+        //f5();
+
+
+        //循环语句可以混合使用。
+        function f6(){
+            var n=0;
+            while(n++<10){
+                for(var i=0;i<=10;i++){
+                    document.write(i+",");
+                }
+                document.write("<br/>");
+            }
+        }
+        //f6();
+
+        //0-10的数输出10行，奇数输出奇数，偶数行输出偶数
+        function f7(){
+            var n=0;
+            while(n++<10){
+                for(var i=1;i<=10;i++){
+                    if(n%2===1){
+                        if(i%2===1){
+                            document.write(i+",");
+                        }
+                    }else{
+                        if(i%2===0){
+                            document.write(i+",");
+                        }
+                    }
+                }
+                document.write("<br/>");
+            }
+        }
+        //f7();
+
+
+        //0-10的数输出10行，奇数输出奇数，偶数行输出偶数
+        function f8(){
+            var n=0;
+            while(n++<10){
+                if(n%2===0){//这是偶数行
+                    for(var i=1;i<=10;i+=2){
+                        document.write(i+1+",");
+                    }
+                }else{//这是奇数行
+                    for(var m=1;m<=10;m+=2){
+                        document.write(m+",");
+                    }
+                }
+                document.write("<br/>");
+            }
+        }
+        f8();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

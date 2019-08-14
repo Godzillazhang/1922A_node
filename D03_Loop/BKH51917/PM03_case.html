@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //长方形、三角形、菱形
+        /***
+            ************
+            ************
+            ************
+            ************
+        */
+        //长方形
+        function f1(){
+            for(var n=0;n<10;n++){
+                for(var i=0;i<10;i++){
+                    document.write("*");
+                }
+                document.write("<br/>");
+            }
+        }
+        //f1();
+
+
+        /***
+            *
+            **
+            ***
+            ****
+        */
+        //三角形
+        function f2(){
+            for(var n=1;n<=10;n++){
+                for(var i=1;i<=n;i++){
+                    document.write("*");
+                }
+                document.write("<br/>");
+            }
+        }
+        //f2();
+
+
+
+        /***
+               *
+              **
+             ***
+            ****
+        */
+        function f3(){
+            for(var n=0;n<10;n++){//控制的是行
+                for(var i=9;i>=0;i--){//控制的是列
+                    if(i<=n){
+                        document.write("*");
+                    }else{
+                        document.write("-");
+                    }
+                }
+                document.write("<br/>");
+            }
+        }
+        //f3();
+
+
+        //等腰三角形
+        function f4(){
+            for(var n=0;n<10;n++){//控制的是行
+                for(var i=9;i>=0;i--){//控制的是列
+                    if(i<=n){
+                        document.write("*");
+                    }else{
+                        document.write("-");
+                    }
+                }
+                for(var m=1;m<=n;m++){
+                    document.write("*");
+                }
+                document.write("<br/>");
+            }
+        }
+        //f4();
+
+
+
+        //菱形
+        function f5(){
+            for(var n=5;n>=-5;n--){
+                for(var m=-5;m<=5;m++){
+                    if(Math.abs(n)+Math.abs(m)<=5){
+                        document.write("*");
+                    }else{
+                        document.write("-");
+                    }
+                }
+                document.write("<br/>");
+            }
+        }
+        f5();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
