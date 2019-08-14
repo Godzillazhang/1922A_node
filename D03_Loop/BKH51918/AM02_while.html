@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+            while循环
+        */
+        //在网页上输出0-100的数字，用循环的指令完成这件事
+        function fn(){
+
+            // var i=0;
+            // while(i++<=100/*这里表示循环条件*/){
+            //     document.write(i-1+",");//i
+            // }
+
+            var i=0;
+            while(true){
+                document.write(i+++",");
+                if(i>=100){
+                    break;
+                }
+            }
+
+        }
+        //fn();
+
+
+        //输出0-100之间的奇数
+        function f1(){
+            var i=1;
+            while(i<=100){
+                if(!(i==2 || i==4 || i==6 || i==8 || i==10)){//0-10之间还可取，但是0-100就不可取，原因是条件太多，输不完
+                    document.write(i+",");
+                }
+                i++;
+            }
+        }
+        //f1();
+
+
+        function f2(){
+            var i=1;
+            while(i<=100){//循环100次
+                if(i%2!==0){
+                    document.write(i+",");
+                    //i++ 不能简写在这里，原因是，i===2时，不符合if语句条件，所以i无法实现++，
+                    //导致i恒等于2; 接着就就会导致循环条件恒成立。就会死循环。
+                }
+                i++;
+            }
+        }
+        //f2();
+
+
+
+        function f3(){
+            var i=1;
+            while(i<=100){//循环50次
+                document.write((i+=2)-2+",");    
+            }
+        }
+        // f3();
+
+
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

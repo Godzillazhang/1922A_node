@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+            关键字是 for 
+            小括号内，可以什么都没有，但是两分号必须有，不能多，不能少。
+            大括号可以省，前提是循环语句只有一句话时，可省。
+            for(;;){
+
+            }
+        */
+        function fn(){
+            for(var i=0;i<=100;i++){
+                document.write(i+",");
+            }
+
+            // var i=0;
+            // for(;;){
+            //     document.write(i+",");
+            //     if(i>=100){
+            //         break;
+            //     }
+            //     i++;
+            // }
+        }
+        //fn();
+
+
+        function f1(){
+            //1,100,2,200,3,300
+            for(var n=1,m=100;n<=10 && m<=500;n++,m+=100){
+                document.write(n+",");
+                document.write(m+",");
+                document.write("<br/>");
+            }
+        }
+        f1();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

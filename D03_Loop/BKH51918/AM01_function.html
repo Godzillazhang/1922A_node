@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //function 是一个关键字，用来申明函数
+        //function 后面紧跟着的是函数名成，同样遵循驼峰式命名习惯
+        //函数名的规则：字母数字下横线$，数字依然不能作为函数名称的开头部分
+        //函数名后面的小括号不能省
+        //大括号表示函数体
+        //以上的及部分都是函数组成部分，也是必须存在的。
+
+        //var i=0;//全局变量
+        function fn(){
+            var a=0;//局部变量，可以减少变量命名冲突
+            console.log(a);
+            console.log(10);
+            
+            console.log(a);
+            console.log(10);
+            
+            console.log(a);
+            console.log(10);
+            
+            console.log(a);
+            console.log(10);
+            
+            console.log(a);
+            console.log(10);
+        }
+        fn();//调用函数
+        fn();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

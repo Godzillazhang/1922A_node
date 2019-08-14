@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+            do-while 使用
+        */
+        function fn(){
+            do{
+                //大括号叫循环体
+            }while(0/*循环条件*/);
+        }
+        //fn();
+
+
+        function f1(){
+            var i=0;
+            do{
+                if(i%3===0 && i%7===0){
+                    document.write(i+",");
+                }
+                i++;
+            }while(i<=100);
+        }
+        //f1();
+
+        function f2(){
+            var i=0;
+            do{
+                if(i%3===0 && i%7===0){
+                    document.write(i+",");
+                }
+                i+=7;
+            }while(i<=100);
+        }
+        //f2();
+
+
+
+        /**
+            do-while   &&   while 的区别
+        */
+        function f3(){
+            while(0){//循环条件不成立
+                document.write("0");//不执行
+            }
+
+            do{
+                document.write("0");//0
+            }while(0);
+            
+            //console.log(1);
+
+            //while 循环先检测循环条件，循环条件成立时，才会执行循环体内语句
+            //do-while 循环先执行循环体语句，第一次执行完毕以后检测循环条件，如果循环条件为真，继续循环执行，如果条件为假，则继续向下执行。
+        }
+        f3();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
