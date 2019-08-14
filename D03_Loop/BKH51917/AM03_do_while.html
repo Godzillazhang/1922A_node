@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+            do-while语法：
+        */
+        function fn(){
+            do{
+                //大括号还是叫循环体
+            }while(0/*循环条件*/);
+        }
+        //没有调用fn();只是熟悉语法。
+
+
+        /*在网页上输出0-100奇数*/
+        function f1(){
+            var i=1;
+            do{
+                //if(i===2 || i===4 || .....) 理论上的这种方式是可以实现的，
+                if(i%2===1){
+                    document.write(i+",");
+                }
+            }while(i++<100);
+        }
+        //f1();
+
+
+
+        function f2(){//这个方法不能输出奇数
+            var i=1;
+            do{
+                //if(i===2 || i===4 || .....) 理论上的这种方式是可以实现的，
+                if(i%2===1){
+                    document.write(i+++",");//i++不可以写在这个地方
+                    //因为i自增==2时，if条件为false，i++就没有执行的机会
+                    //就会导致i恒等于2，一直满足循环条件，但是不满足if条件，就会死循环。
+                }
+            }while(i<=100);
+        }
+        //f2();
+
+
+        function f3(){//这个方法不能输出奇数
+            var i=1;
+            do{
+                //if(i===2 || i===4 || .....) 理论上的这种方式是可以实现的，
+                if(i%2===1){
+                    document.write(i+",");//i++不可以写在这个地方
+                    //因为i自增==2时，if条件为false，i++就没有执行的机会
+                    //就会导致i恒等于2，一直满足循环条件，但是不满足if条件，就会死循环。
+                }
+                i++;
+            }while(i<=100);
+        }
+        //f3();
+
+
+        //do-while    &&    while 的区别
+        function distribute(){
+            do{
+                document.write("ok");
+            }while(0);//循环条件为false
+
+            while(0){
+                document.write("ok");//不执行
+            }
+
+            //总结：do-while循环的循环体，不管循环条件为真或者为假，至少执行一次。
+            //while循环，先判断循环条件，如果循环条件为false，不能执行循环体。
+            //如果while循环条件为真，会执行循环体。
+        }
+        distribute();
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

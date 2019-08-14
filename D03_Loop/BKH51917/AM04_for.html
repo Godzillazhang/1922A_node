@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //for 循环
+        /**
+            语法：for(;;){}
+            关键字：for
+            小括号不能省：小括号内必须有两个分号。分号不能多，也不能少。
+            大括号表示：循环体，可省，不建议省。
+        */
+        function fn(){
+            for(/*一般用于申明并初始化循环变量*/;/*循环条件*/;/*一般用于控制循环变量*/){}
+        }
+        //没有调用fn 会出现死循环
+
+
+
+        //在页面上输出0-100j中，同时能被3和7整除的数
+        function f1(){
+            for(var i=0;i<=100;i++){//循环100次
+                if(i%3===0 && i%7===0){
+                    document.write(i+",");
+                }
+            }
+        }
+        //f1();
+
+
+        function f2(){
+            for(var i=0;i<=100;i+=7){//循环15次结束
+                if(i%3===0 && i%7===0){
+                    document.write(i+",");
+                }
+            }
+        }
+        //f2();
+
+
+        function f3(){
+            for(var i=0;i<=100;i++){//循环15次结束
+                if(i%3===i%7){
+                    document.write(i+",");
+                }
+            }
+        }
+        f3();
+
+
+
+        ///for循环的debug，
+        //for循环的语法拓展没有讲，
+        //奇偶数的代码中+=赋值符号的应用
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

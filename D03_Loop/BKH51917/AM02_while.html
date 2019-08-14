@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        /**
+            循环：重复的做某件事情，叫做循环操作
+            为什么要学习循环？
+                可以将我们的代码精简化，高效的完成我们任务
+        **/
+        //在网页上输出：0-100数字
+        function fn(){
+            document.write("0-100");
+        }
+        //fn();
+
+        //while循环
+        /**
+            语法：
+                关键字：while
+                小括号：表示的是循环条件
+                大括号：表示循环体，可以省略，前提是循环体内只有一句话。
+        */
+        function f1(){
+            var i=0;
+            while(i++<=100/*循环条件*/){
+                document.write(i-1+",");
+            }
+        }
+        // f1();
+        function f2(){
+            var i=0;
+            while(i<=100/*循环条件*/){
+                document.write(i+++",");
+            }
+        }
+        //f2();
+
+
+        function f3(){
+            var i=0;
+            while(true/*循环条件*/){
+                document.write(i+++",");
+                if(i>100){
+                    break;
+                }
+            }
+        }
+        // f3();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
