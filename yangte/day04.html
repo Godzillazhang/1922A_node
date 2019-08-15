@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>  
+
+    <!-- 为抵抗洪水，战士连续作战89小时，编程计算共多少天零多少小时？ -->
+    <script>
+        var _a=window.prompt("输入连续作战时间","89");
+        document.write("连续工作"+parseInt(parseInt (_a)/24)+"天"+parseInt(_a)%24+"小时");
+        document.write('<hr>');
+    </script>
+    <!-- 小明要到美国旅游，可是那里的温度是以华氏度为单位记录的。他需要一个程序讲华氏温度80度转为摄氏温度为单位分别显示该温度 -->
+    <script>
+        window.onload=function()
+        {
+            var _e=document.getElementById('text3');
+            var _f=document.getElementById('bt1')
+            _f.onclick=function()
+            {
+                alert("摄氏度："+((parseFloat(_e.value)-32)*9.0/5).toFixed(3));
+            }
+        }
+    </script>
+    <div>
+        华氏温度<input id="text3"type="text">
+        <input id="bt1" type="button"value="摄氏度">
+        <hr>
+    </div>
+    <!-- 计算两个文本框的加减乘除 -->
+    <script>
+        window.onload=function jisuan()
+        {
+            var _a=document.getElementById('text1');
+            var _b=document.getElementById('text2');
+           //乘
+            var _c=document.getElementById('btn1');
+            _c.onclick=function()
+            {
+                alert(parseInt(_a.value)*parseInt(_b.value));
+            };
+            //加
+            var _d=document.getElementById('btn2');
+            _d.onclick=function()
+            {
+                alert(parseInt(_a.value)+parseInt(_b.value));
+            }
+            //减
+            var _e=document.getElementById('btn3');
+            _e.onclick=function()
+            {
+                alert(parseInt(_a.value)-parseInt(_b.value));
+            }
+            //除
+            var _f=document.getElementById('btn4');
+            _f.onclick=function()
+            {
+                alert(parseInt(_a.value)/parseInt(_b.value));
+            }
+        };
+        jisuan();
+    </script>   
+    <form>
+        <input id="text1" type="text">+-*/
+        <input id="text2" type="text">=
+        
+        <input id="btn1" type="button" value="积">
+        <input id="btn2" type="button" value="和">
+        <input id="btn3" type="button" value="减">
+        <input id="btn4" type="button" value="商">
+    </form>
+    <hr>
+    <!-- 判断是否为闰年 -->
+    <script>
+        var _b=window.prompt("输入年份,判断是否为闰年","2000");
+        var _c;
+        if(_b%4==0)
+        {
+            _c="是闰年";
+        } else
+        {
+            _c="不是闰年";
+        } 
+        alert(_c);
+    </script>
+    <!-- 奇数行是奇数，偶数行是偶数 -->
+    <script>
+        function f1(){
+            var n=0;
+            while(n++<10){
+                if(n%2==1){
+                    for(var i=1;i<10;i+=2){
+                        document.write(i+',');
+                    }   
+                    document.write('<br/>');        
+                }else{
+                    for(var i=2;i<10;i+=2){
+                        document.write(i+',');
+                    }     
+                    document.write('<br/>');
+                }           
+            }  
+        }
+        f1();
+        document.write('<hr>');
+    </script>
+    <!-- 100以内偶数和 -->
+    <script>
+        var _sum=0;
+        for(var i=0;i<=100;i+=2)
+        {
+            _sum+=i;
+        }
+        document.write('100以内偶数和'+_sum);
+        document.write('<hr>');
+    </script>
+    <!-- 100以内奇数和 -->
+    <script>
+        var _sum1=0;
+        var j=1;
+        do{
+            _sum1+=j;           
+            j+=2;           
+        }while(j<100);
+        document.write('100以内奇数和'+_sum1);
+        document.write('<hr>');
+    </script>
+    <!-- 打印形状 -->
+    <script>       
+        //菱形1
+        function f2(){
+            for(var n=1;n<=10;n++){
+                for(var i=1;i<=10-n;i++){
+                    document.write('-');
+                }
+                for(var j=1;j<=n;j++){
+                    document.write('*');
+                }
+                for(var j=2;j<=n;j++){
+                    document.write('*');
+                }
+                document.write('<br/>');
+            }
+            for(var n=9;n>=1;n--){
+                for(var i=1;i<=10-n;i++){
+                    document.write('-');
+                }
+                for(var j=1;j<=n;j++){
+                    document.write('*');
+                }
+                for(var j=2;j<=n;j++){
+                    document.write('*');
+                }
+                document.write('<br/>');
+            }
+        }
+        f2();
+        document.write('<hr>');
+        //菱形2  Math.abs();取绝对值。
+        function f3(){
+            for(var n=5;n>=-5;n--){
+                for(m=-5;m<=5;m++){
+                    if(Math.abs(n)+Math.abs(m)<=5){
+                        document.write('*');
+                    }else{
+                        document.write('-');
+                    }
+                }
+                document.write('<br/>')
+            }
+        }
+        f3();
+        document.write('<hr>');
+        //三角
+        function sanjiao(){
+            for(var n=5;n>0;n--){
+                for(var m=0;m<5;m++){
+                    if(n+m<=5){
+                        document.write('*');
+                    }
+                }
+                document.write('<br>');
+            }
+        } 
+        sanjiao();  
+        document.write('<hr>');
+        //等腰三角
+        function sanjiao2(){
+            for(var n=5;n>0;n--){
+                for(var m=-5;m<5;m++){
+                    if(Math.abs(n)+Math.abs(m)<=5){
+                        document.write('*');
+                    }
+                    else{
+                        document.write('-');
+                    }
+                }
+                document.write('<br>');
+            }
+        } 
+        sanjiao2();  
+        document.write('<hr>');
+        //六边形
+        function liu(){
+            for(var n=2;n>=-2;n--){
+                for(m=-5;m<=5;m++){
+                    if(Math.abs(n)+Math.abs(m)<=5){
+                        document.write('*');
+                    }else{
+                        document.write('-');
+                    }
+                }
+                document.write('<br/>')
+            }
+        }
+        liu();
+        document.write('<hr>');
+    </script>
+    <!-- 九九乘法表 -->
+    <script>
+        function f4(){
+            for(var n=1;n<=9;n++){
+                for(var j=1;j<=n;j++){                   
+                    document.write(j+'*'+n+'='+n*j+'&emsp;');
+                }
+                document.write('<br>');
+            }       
+        }     
+        f4();
+        document.write('<hr>');
+    </script>
+    <!-- 水仙花数 -->
+    <script>
+        function f5(){
+            var _shu=window.prompt('是否为水仙花数，请输入','153');
+            var _ge=_shu%10;
+            var _shi=parseInt(_shu/10)%10;
+            var _bai=parseInt(_shu/100);
+            var _sum=_ge**3+Math.pow(_shi,3)+_bai*_bai*_bai;
+            if(_sum==_shu){
+                document.write('是水仙花数');
+            }else{
+                document.write('不是水仙花数');
+            }
+        }
+        f5();
+        document.write('<hr>');
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>
