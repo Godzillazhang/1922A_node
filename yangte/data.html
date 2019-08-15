@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 计算输入日期是一年中第几天 -->
+    <script>
+        var _date=window.prompt("输入日期","20160211")
+        var arr1=new Array(31,28,31,30,31,30,31,31,30,31,30,31);
+        var arr2=new Array(31,29,31,30,31,30,31,31,30,31,30,31);//闰
+        var _year=parseInt(_date)/10000;
+        var _mon=parseInt(_date/100)%100;
+        var _day=parseInt(_date%100);
+        var _tian=0;
+        if(parseInt(_year)%4==0){
+            for(var i=0;i<_mon-1;i++){
+                _tian+=arr2[i];
+            }
+            alert("第"+(parseInt(_tian)+parseInt(_day))+"天");
+
+        }else{
+            for(var i=0;i<_mon;i++){
+                _tian+=arr1[i];
+            }
+            alert(parseInt(_tian)+parseInt(_day));
+        }
+    </script>
+    
+</head>
+<body>
+    
+</body>
+</html>
