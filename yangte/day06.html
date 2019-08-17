@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 输出100-200之间所有的素数 -->
+    <script>
+        document.write("100-200的素数：");
+        for(var i=100;i<=200;i++){
+            var isSu=true;
+            for(var j=2;j<=i/2;j++){
+                if(i%j==0){
+                    isSu = false;//还可以用计数器，非零就是合数
+                    break;                 
+                }              
+            } 
+            if(isSu==true){
+                document.write(i+"&nbsp;&nbsp;&nbsp;");
+            }
+            // else{
+            //     document.write(i+"不是素数");
+            // }                
+            //document.write("<br>");              
+        }
+        document.write("<hr/>")    
+        
+        function isPrime(){
+            var shu=parseInt(window.prompt("输入一个数，判断是否为素数，大于1","0"));
+            for(var i=2;i<=shu/2;i++){
+                if(shu%i==0){
+                    break;//直到遇到能整除的数。
+                }
+            }
+            if(i>shu/2){
+                alert(shu+"素数");
+            }
+            else{
+                alert(shu+"合数");
+            }
+        }
+        isPrime();
+        
+    </script>
+    <!-- 求1+2!+3!+...+20!的值 递归算法 -->
+    <script>
+        function jie(m){
+            if(m<=1){
+                return 1;
+            }
+            return m*jie(m-1);
+        }
+        function jc(n){
+            if(n<=1){
+                return 1; 
+            }
+            return jie(n)+jc(n-1);
+        }
+        document.write("1+2!+3!+...+20!的值"+jc(20));
+        document.write('<hr>');
+        var sum=0;
+        var fac=1;
+        for(var i=1;i<=20;i++){
+            fac=fac*i;
+            sum+=fac;
+        }
+        document.write("1+2!+3!+...+20!的值"+sum);
+        document.write('<hr>');
+    </script>
+    <!-- 2561327494111820313 00-->
+    
+    
+    <script>
+        // 计算阶乘的方法
+        function jiecheng(_sum){
+            var _result=1;
+            for(var i=1;i<=_sum;i++){
+                _result*=i;
+            }
+            return _result;
+        }
+        document.write('3的阶乘:'+jiecheng(3));
+        document.write('<hr>');
+        //匿名函数
+        
+        //自调用
+        (function(){
+            //代码
+        })();
+        //递归
+        function f(n){
+            if(n<=1){
+                return 1;
+            }
+            return n*f(n-1);
+        }
+        f(3);
+
+        //计算3的阶乘
+        //斐波拉契数列1，1，2，3，5，8，13，21，34...
+        function f(n){
+            if(n<=2){
+                return 1;
+            }
+            return f(n-1)+f(n-2);
+        }
+        document.write('斐波拉契数列第6个数:'+f(6));
+        document.write('<hr>');
+    </script>
+    <!-- 作业 -->
+    <script>
+        // 99乘法表
+        function f1(n){
+            if(n==1){
+                document.write("1x1=1");
+                document.write('<br/>');
+            }else{
+                f1(n-1);
+                for(var i=1,str='';i<=n;i++){
+                    str+=i+'x'+n+'='+i*n+' ';
+                }
+                document.write(str);
+                document.write('<br/>');
+            }
+        }
+        f1(9); 
+         document.write("<br/>");
+        //99乘法表
+        function recursion(a,b){
+            if(b===10){
+                return;
+            }
+            document.write(a+"*"+b+"="+a*b+"&nbsp;");
+            if(a===b){
+                document.write("<br/>");
+                recursion(1,b+1);
+            }else{
+                recursion(a+1,b);
+            }
+        }
+        recursion(1,1);
+        document.write("<hr/>");
+        //1-50的奇数和
+        function f2(n){
+            if(n==1){
+                return 1;
+            }            
+            if(n%2==1){
+                return n+f2(n-2);
+            }else{
+                n=n-1;
+                return n+f2(n-2);
+            }                            
+        }
+        document.write("1-50的奇数和:"+f2(50));
+        document.write("<hr/>");
+    </script>
+    <!-- 变量 -->
+    <script>
+        
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>
