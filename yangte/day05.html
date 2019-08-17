@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //练习使用函数，传参
+        function shuchu(_shu){
+            for(i=1;i<=_shu;i++){
+                document.write(i+"&nbsp;");
+            }
+        }
+        shuchu(30);
+        document.write("<br/>");
+        shuchu(50);
+    </script>
+    <script>
+        /**
+         * arguments使用场景
+         * 参数特别多时
+         * 
+         * return结束整段代码块
+        */
+        function test(){
+            //console.log(arguments[0],a);
+            console.log(arguments.callee);//输出代码块test()
+            var _sum=0;
+            for(var i=0;i<=100;i+=2){
+                _sum+=i;
+            }
+            return _sum;//返回偶数和
+        }
+        sum=test();//如果函数返回值需要被多次调用，建议保存为变量，避免多次调用函数。
+        console.log(sum);
+
+    </script>
+</body>
+</html>
