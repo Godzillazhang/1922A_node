@@ -76,11 +76,9 @@
     <script>
         var _b=window.prompt("输入年份,判断是否为闰年","2000");
         var _c;
-        if(_b%4==0)
-        {
+        if(_b%4==0){       
             _c="是闰年";
-        } else
-        {
+        }else{
             _c="不是闰年";
         } 
         alert(_c);
@@ -217,6 +215,45 @@
         }
         liu();
         document.write('<hr>');
+        // 递归菱形
+        function recursion2(a,b){
+            if(b==-6){
+                return;
+            }if((Math.abs(a)+Math.abs(b))<6){
+                document.write(" * ");
+            }
+            else{
+                document.write(" - ");
+            }
+            
+            if(a==5){
+                document.write("<br/>");
+                recursion2(-5,b-1);
+            }else{
+                recursion2(a+1,b);
+            }
+        }
+        recursion2(-5,5);
+        document.write(" <br/> ");
+        // 递归八边形
+        function recursion1(a,b){
+            if(b==-4){
+                return;
+            }if((Math.abs(a)+Math.abs(b))<6){
+                document.write(" * ");
+            }
+            else{
+                document.write(" - ");
+            }
+            
+            if(a==5){
+                document.write("<br/>");
+                recursion1(-5,b-1);
+            }else{
+                recursion1(a+1,b);
+            }
+        }
+        recursion1(-5,3);
     </script>
     <!-- 九九乘法表 -->
     <script>
