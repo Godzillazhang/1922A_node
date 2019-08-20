@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*
+        //结果14
+        var sum = 10;
+        for (var i = 2; i < 10; i++) {
+            sum = sum * 0.05 + sum;
+        }
+        alert(parseInt(sum));
+        */
+        
+        // testf1函数先执行, 先进行变量提升, 且里面的num1为私有变量,不会更改全局变量
+        //testf2 里面的num1为全局变量  2  1
+        var num1 = 1;
+        function testf1() {
+            num1 = 2;
+            var num1;
+            alert(num1);
+        }
+        function testf2() {
+            alert(num1);
+        }
+        testf1();
+        testf2();
+        
+        //这个没有var num1；2 2 
+        var num1 = 1;
+        function testf1() {
+            num1 = 2;
+            alert(num1);
+        }
+        function testf2() {
+            alert(num1);
+        }
+        testf1();
+        testf2();
+        
+        // 函数中的a会变量提升；所以第一个a是undefined；a 赋值了10；所以a 是10；
+        var a = 20;
+        function foo() {
+            console.log(a);
+            var a = 10;
+            console.log(a);
+        }
+        foo();
+        var a = 20;
+        function foo() {
+            var a;
+            console.log(a);
+            a = 10;
+            console.log(a);
+        }
+        foo();
+
+        // Number(true) 返回值1
+        // console.log( (2==true)+1 )返回值1   2不等于true
+        
+        // 报错 sum是局部变量 
+        function add() {
+            var sum = 1 + 2;
+            console.log(sum);
+        }
+        console.log(sum);//引不到报错       
+        
+        // x=10; y=undefined f1没返回值
+        var x = 10;
+        function f1(num) {
+            ++num;
+        }
+        var y = f1(x);
+        console.log('x=' + x + '; y=' + y);
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>
