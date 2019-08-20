@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 声明数组
+        
+        /*var _arr=[];
+        var _arr1 = new Array();
+        for(var i=1,j=0;j<50;i=i*2+1,j++){
+            _arr[j]=i;
+        }
+        console.log(_arr);
+
+        var _arr1=[1];
+        for(i=1;i<50;i++){
+            _arr1[i]=_arr[i-1]*2+1;
+
+        }
+        console.log(_arr1);
+        */
+        //随机获取10个三位数 
+        function ran(){
+            var _arr=[];
+            for(var i=0;i<10;i++){
+                _arr[i]=Math.floor(Math.random()*900+100);
+            }
+            return _arr;
+        }
+
+        // 冒泡法 大的往后走
+        
+        /*function s(){
+            var _list=ran();
+            console.log(_list);            
+            for(var j=0;j<_list.length;j++){
+                var temp=null;
+                for(var i=0;i<_list.length;i++){
+                    if(_list[i]>_list[i+1]){
+                        temp=_list[i+1];
+                        _list[i+1]=_list[i];
+                        _list[i]=temp;                       
+                    }
+                }
+                console.log(_list);
+                if(temp===null){
+                    break;
+                }
+            }
+            console.log(_list);
+        }
+        s();
+        */
+
+        // 冒泡法，小的往前走，正宗
+        
+        /*function s1(){
+            var _list=ran();
+            console.log(_list);
+            for(var i=0;i<_list.length;i++){
+                var temp=null;
+                for(j=_list.length-1;j>0;j--){
+                    if(_list[j]<_list[j-1]){
+                        temp=_list[j-1];
+                        _list[j-1]=_list[j];
+                        _list[j]=temp;
+                    }
+                }
+                console.log(_list);
+                if(temp===null){
+                    break;
+                }
+            }
+            console.log(_list);
+        }
+        s1();
+        */
+        //比较法。每个值依次和后面的值去比较，找到最小的，然后交换
+        function s2(){
+            var _list=ran();
+            document.write(_list+"<br/>");
+            var _flag,_empty;
+            for(var s=0;s<_list.length;s++){
+                _flag=s;
+                for(var i=s+1;i<_list.length;i++){
+                    if(_list[_flag]>_list[i]){
+                        _flag=i;
+                    }
+                }
+                _empty=_list[s];
+                _list[s]=_list[_flag];
+                _list[_flag]=_empty;
+                document.write(_list+"<br/>");
+            }
+            console.log(_list);
+        }
+        s2();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
