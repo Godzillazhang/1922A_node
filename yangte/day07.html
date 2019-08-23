@@ -22,6 +22,19 @@
         }
         console.log(_arr1);
         */
+        function f1(_a,_array){
+            _a=11;
+            //_array[0]=10;//通过对地址位置进行操作
+            _array=222;//更改数组名称指向，不影响其他地方数据
+        }
+        function f2(){
+            var a=10;
+            var _arr=[8,5,0,3,1];
+            
+            f1(a,_arr);
+            console.log(a,_arr);
+        }
+        f2();
         //随机获取10个三位数 
         function ran(){
             var _arr=[];
@@ -33,12 +46,12 @@
 
         // 冒泡法 大的往后走
         
-        /*function s(){
+        function s(){
             var _list=ran();
             console.log(_list);            
             for(var j=0;j<_list.length;j++){
                 var temp=null;
-                for(var i=0;i<_list.length;i++){
+                for(var i=0;i<_list.length-j;i++){
                     if(_list[i]>_list[i+1]){
                         temp=_list[i+1];
                         _list[i+1]=_list[i];
@@ -53,23 +66,23 @@
             console.log(_list);
         }
         s();
-        */
+        
 
         // 冒泡法，小的往前走，正宗
         
         /*function s1(){
             var _list=ran();
-            console.log(_list);
+            document.write(_list+"<br>");
             for(var i=0;i<_list.length;i++){
                 var temp=null;
-                for(j=_list.length-1;j>0;j--){
+                for(var j=_list.length-1;j>i;j--){
                     if(_list[j]<_list[j-1]){
                         temp=_list[j-1];
                         _list[j-1]=_list[j];
                         _list[j]=temp;
                     }
                 }
-                console.log(_list);
+                document.write(_list+"<br>");
                 if(temp===null){
                     break;
                 }
@@ -77,7 +90,7 @@
             console.log(_list);
         }
         s1();
-        */
+       /*
         //比较法。每个值依次和后面的值去比较，找到最小的，然后交换
         function s2(){
             var _list=ran();
@@ -98,7 +111,7 @@
             console.log(_list);
         }
         s2();
-
+ */
     </script>
 </head>
 <body>
