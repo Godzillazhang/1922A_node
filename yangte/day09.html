@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var s="abcdefghiabcd465123154";
+        console.log(String.fromCharCode(97));
+        console.log(s.charAt(1));
+        console.log(s.charCodeAt(1));
+        console.log(s.indexOf("b"));
+        console.log(s.lastIndexOf("b"));
+        console.log(s.replace("a","z"));//不改变s
+        console.log(s);
+        //   更改  所有的“a”，还可删除
+        for(var i in s){
+            s=s.replace("a","");//重新赋值了
+        }
+        console.log(s);
+        // 删除所有“c”
+        _list=s.split("c");
+        var s2=_list.join("");
+        console.log(s2);
+
+        console.log(s.slice(1,3));//【1，3）
+        console.log(s.substring(1,3));//【1，3）
+        console.log(s.substr(1,3));//1开始，3个数
+        console.log(s.split("c"));//返回数组
+        console.log(s.toUpperCase());
+        console.log(s);
+        console.log(s.toString());
+        s=s.replace("b","   ");
+        console.log(s);
+
+        console.log(s.trim());
+    </script>
+
+</head>
+<body>   
+</body>
+</html>
