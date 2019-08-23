@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /**
+            es5的几个方法
+        */
+        Array.prototype.each=function(f){
+            for(var i=0;i<this.length;i++){
+                f(this[i],i,this);
+            }
+        };
+        //forEach方法遍历，元素，下标，自身
+        /*var  arr=[1,2,3,4,5];
+        arr.forEach(function(_element,_index,_origin){
+            console.log(arguments);
+        });*/
+
+
+        //map映射
+        /*var names=['fds','sfs','fefse'];
+        var newSet=names.map(function(name,index){
+            return {
+                id:index,
+                name:name,
+                sex:Math.random().toFixed(1)*10%2//Math.round(Math.random())
+
+            };
+        });
+        console.log(names);
+        console.log(newSet);*/
+
+        // filter(function(ele,index,orgin){});过滤器，通过条件筛选数组元素，return返回筛选条件
+        /*var arr=[
+            {"name":"apple","count":2},
+            {"name":"orange","count":5},
+            {"name":"pear","count":9},
+            {"name":"apple","count":4}
+        ];
+        var newArr=arr.filter(function(item){
+            return item.name=="apple";
+        });
+        console.log(newArr);
+        var arrr=[45,45,78,65,1,2,3,445,1,2];
+        var newArrr=arrr.filter(function(item){
+            return item==1;
+        });
+        console.log(newArrr);*/
+        // 字符串拼接
+        var arr=["apple","orange","pear"];
+        /*function noPassValue(){
+            return arr.reduce(function(prev,next){
+                return prev+""+next;
+            },"123");//可在前面加一个123.
+        }
+        console.log(noPassValue());*/
+        console.log(arr.reduce(function(prev,next){
+                return prev+" "+next;
+            }));
+        function reduce(prev){
+            var arr = ["apple","orange","banana"];
+            var next;
+            if(!prev){
+                prev="";
+            }
+            for(var i=0;i<arr.length;i++){
+                prev=(function(p,n){
+                    return p+" "+n;
+                })(prev,arr[i]);
+            }
+            return prev;
+        }
+        console.log(reduce());
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
