@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /**
+            BOM:Broowser Object Model浏览器对象模型
+            window对象就是浏览器中最顶层的对象
+            
+            总结window 对象下的六大对象:
+            DOM frames history location
+
+            history
+                back();//操作浏览器的历史记录向后回退
+                forward();//操作浏览器的历史纪录向前进
+                go();//操作浏览器的历史记录前进后退
+
+                replaceState({},"title","url");可以实现js修改地址栏信息
+
+            location
+                .href;//可以代替超链接a；
+                .port:端口号
+                .protocal:协议
+                .reload:重新载入页面
+                .search();//可以获取url参数
+       
+        */
+        //定时器&延时器
+        /**
+            延时器
+            var _timer=window.setTimeout(f,delay);
+            window.clearTimeout(_timer);//表示清除延时器
+
+            定时器
+            var _timer=window.setInterval(f,time);
+            window.clearInterval(_timer);
+
+            总结：
+                定时器可以重复执行
+                延时器只执行一次，延迟代码执行的顺序
+
+            异步：代码与代码之间相对独立
+                定时器、延时器、时间
+        */
+
+        //定时分别输出字符
+        function output(){
+            var _s="sfmmskelmkfeslfdfegsgefg";
+            var i=0;           
+            var timer=window.setInterval(function(){
+                document.write(_s[i++]);
+                if(i>=_s.length){
+                    window.clearInterval(timer);
+                }
+            },60);
+           
+        }
+        //output();
+        // 延迟分别输出字符，递归
+        
+        var _s="sfmmskelmkfeslfdfegsgefg";
+        var timer2=0;
+        var i=-1;
+        function output2(){
+            window.clearTimeout(timer2);
+            document.write(_s[i++]);
+            if(i<_s.length){
+                timer2=window.setTimeout(output2,60);
+            }
+        }
+        //output2();
+        // 定时画圆
+        function circle(){
+            var i=0;
+            var _timer=window.setInterval(function(){
+                document.write('<div style="height:5px;width:5px;position:absolute;background:red;left:'+(200+200*Math.cos(i*2*Math.PI/200))+'px;top:'+(200+200*Math.sin(i*2*Math.PI/200))+'px; "></div>  ');
+                if(i++>=200){
+                    window.clearInterval(_timer);
+                }
+            },60);
+        }
+        //circle();
+        // 计算倒计时 距离某天
+        function desc(){ 
+            var _date=new Date("2019-08-30").getTime();//声明出来就是2019-08-30 00:00:00的时间  
+            var _timer=window.setInterval(function(){
+                var _current=new Date().getTime();
+                var _s=_date-_current;
+                var _h=Math.floor(_s/3600000);
+                var _m=Math.floor((_s-_h*3600000)/60000);
+                var _sec=Math.floor((_s-_h*3600000-_m*60000)/1000);
+                document.getElementById("timer").innerHTML="时间:"+_h+":"+_m+":"+_sec;
+            });
+        }
+        desc();
+
+    
+    </script>
+</head>
+<body>
+    <div id="timer"></div>
+</body>
+</html>
