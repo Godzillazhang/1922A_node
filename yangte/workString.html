@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //敏感词过滤  留言过滤
+        // "abc","tmd","cnm"
+        function f1(){
+            var _s=window.prompt("请输入","");
+            var _words=["abc","tmd","cnm"];
+            _words.forEach(function(_ele,_index){
+                while(_s.indexOf(_ele)>=0){
+                    _s=_s.replace(_ele,"*****");
+                }
+            });          
+            console.log(reverse);
+        }
+        //f1();
+
+        //密码格式要求
+        /**
+            1.要有数字
+            2.要有字母
+            3.特殊符号
+            4.密码长度大于等于6位
+        */
+        function f2(){
+            var _password=window.prompt("请输入密码","");
+            var _n=false;
+            var _c=false;
+            var _a=false;
+            for(var i=0;i<_password.length;i++){
+                if(_password[i].charCodeAt()>=48&&_password[i].charCodeAt()<=57){
+                    _n=true;
+                }
+                if(_password[i].toUpperCase().charCodeAt()>=65&&_password[i].toUpperCase().charCodeAt()<=90){
+                    _c=true;
+                }
+                if(
+                    _password[i].charCodeAt()>=0&&_password[i].charCodeAt()<48||
+                    _password[i].charCodeAt()>58&&_password[i].charCodeAt()<65||
+                    _password[i].charCodeAt()>90&&_password[i].charCodeAt()<97||
+                    _password[i].charCodeAt()>122&&_password[i].charCodeAt()<=127
+                    ){
+                    _a=true;
+                }
+            }
+            console.log(_n&&_c&&_a&&_password.length>=6);
+        }
+        //f2();
+
+        // 验证码数字字母混合
+        function f3(){
+            var _chars=[0,1,2,3,4,5,6,7,8,9,"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
+            var _code='';
+            for(var i=0;i<6;i++){
+                _code+=_chars[Math.floor(Math.random()*_chars.length)];
+            }
+            console.log(_code);
+        }
+        //f3();
+
+        // 统计字符串中每个字符的个数,去掉重复的字符
+        function f4(){
+            var _s=window.prompt("输入统计字符串中每个字符的个数","");
+            var _obj={}
+
+            for(var i in _s){
+                if(_obj[_s[i]])//_s[i] in _obj
+                {
+                    _obj[_s[i]]++;
+                }else{
+                    _obj[_s[i]]=1;
+                }
+            }
+            console.log(_obj);
+            var _str="";
+            for(var j in _obj){
+                _str+=j;               
+            }
+            console.log(_str);
+        }
+        f4();
+        
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
