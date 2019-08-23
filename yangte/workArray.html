@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 1.编写一个函数，计算两个数字的和、差、积、商。要求：使用传参的形式 -->
+    <script>
+        function f1(_a,_b){
+            var _sum,_cha,_ji,_shang;
+            _sum=parseInt(_a)+parseInt(_b);
+            _cha=parseInt(_a)-parseInt(_b);
+            _ji=parseInt(_a)*parseInt(_b);
+            _shang=parseInt(_a)/parseInt(_b);
+            document.write(_a+" "+_b+"<br/>")
+            document.write("和:"+_sum+"<br/>");
+            document.write("差:"+_cha+"<br/>");
+            document.write("积:"+_ji+"<br/>");
+            document.write("商:"+_shang+"<br/>");
+        }
+        f1(3,3);
+        document.write("<hr>");
+    </script>
+    <!-- 2.编写一个函数，计算三个数字的大小，按从小到大顺序输出 -->
+    <script>
+        function ran(){
+            var _arr=[];
+            for(var i=0;i<3;i++){
+                _arr[i]=Math.floor(Math.random()*90+10);
+            }
+            return _arr;
+        }
+        function f2(){
+            var _list=ran();
+            document.write("2.---随即三个二位数"+_list+"<br>");
+            for(var i=0;i<_list.length;i++){
+                var temp=null;
+                for(var j=_list.length-1;j>i;j--){
+                    if(_list[j]<_list[j-1]){
+                        temp=_list[j-1];
+                        _list[j-1]=_list[j];
+                        _list[j]=temp;
+                    }
+                }
+                if(temp===null){
+                    break;
+                }
+            }
+            document.write(_list);     
+        }
+        f2();
+        document.write("<hr>");
+    </script>
+    
+    <!-- 4.编写生成4位数字验证码的函数，并生成10次，同时将结果存入数组 -->
+    <script>
+        function yzm(){
+            document.write("4.---生成4位数字验证码 10次"+"<br/>");
+            var _arr=[];
+            for(var i=0;i<10;i++){
+                var _one=Math.floor(Math.random()*10)+"";
+                var _two=Math.floor(Math.random()*10)+"";
+                var _three=Math.floor(Math.random()*10)+"";
+                var _four=Math.floor(Math.random()*10)+"";
+                var _ma=_one+_two+_three+_four;
+                _arr[i]=_ma;
+            }
+            document.write(_arr.join("--"));
+        }
+        yzm(); 
+        document.write("<hr>");    
+    </script>
+    <!-- 5.编写一个函数，计算任意两个数字之间所能组成的奇数个数，数字必须是个位数。比如： 计算0-3之间能组成的奇数个是01、21、03、13、23、31 -->
+    <script>
+        function f5(_a,_b){
+            var _ge=[];
+            var _list=[];
+            //获取个位数，奇数
+            for(var i=_a;i<=_b;i++){
+                if(i%2==1){
+                    _ge.push(i+"");
+                }
+            }
+            // 拼接，判断不相等时
+            for(var n=0;n<_ge.length;n++){
+                for(var j=0;j<_b;j++){
+                    if(j!==parseInt(_ge[n])){
+                        _list.push(j+_ge[n]);
+                    }
+                }
+            }
+            document.write("5.---"+_list);           
+        }
+        f5(3,6);//传参
+        document.write("<hr>");
+    </script>
+    <!-- 6.某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，加密规则如下：每位数字都加上5,然后用除以10的余数代替该数字，再将第一位和第四位交换，第二位和第三位交换，请编写一个函数，传入原文，输出密文 -->
+    <script>
+        function f6(_yuan){
+            var _mi;
+            _mi=(_yuan+5555)%10+"";
+            var _qian,_bai,_shi,_g;
+            _qian=parseInt(_mi/1000)+"";
+            _bai=parseInt((_mi/100)%10)+"";
+            _shi=parseInt((_mi/10)%10)+"";
+            _g=parseInt(_mi%10)+""; 
+            var _mi1;
+            _mi1=_g+_shi+_bai+_qian;
+            document.write("6.---"+_mi1);
+        }
+        f6(1000);
+        document.write("<hr>");
+    </script>
+    <!-- 7.利用递归求两个数字的最大公约数 -->
+    <script>
+        var gys=1;
+        function f7(a,b){
+            var bool=false;           
+            for(var i=2;i<=a,i<=b;i++){
+                if(a%i===0&&b%i===0){
+                    a/=i;
+                    b/=i;
+                    gys=gys*i;
+                    bool=true;
+                }
+            }      
+            if(bool===true){
+                f7(a,b);
+            }else{
+                document.write("7.---最大公约数："+gys);
+                return 0;
+            }           
+        }
+        f7(64,48);        
+        document.write("<hr>");
+    /* var sum;
+        function f7(a,b){
+            sum=a%b;
+            if(sum==0){
+                document.write(b);
+            }
+            else{
+                f7(b,sum);
+            }
+        }f7(64,24);
+    */
+    </script>
+    <!-- 8.编写一个函数，输入n为偶数时，调用函数求1/2+1/4+...+1/n,当输入n为奇数时，调用函数求/1+1/3+...+1/n -->
+    <script>
+        function f8(n){
+            if(n%2===0){
+                //偶数
+                var _sumO=0;
+                for(var i=2;i<=n;i+=2){
+                    _sumO+=1/i;
+                }
+                return _sumO;
+            }else{
+                var _sumJ=0;
+                for(var i=1;i<=n;i+=2){
+                    _sumJ+=1/i;
+                }
+                return _sumJ;
+            }
+        }
+        document.write("8.---"+f8(3));
+        document.write("<hr>");
+    </script>
+    <!-- 9.使用函数完成任意数字阶乘的计算。要求：页面输入任意数字，点击按钮后计算阶乘 -->
+    <script>
+        window.onload=function f9(){            
+            var _te1=document.getElementById('te');
+            var _bu=document.getElementById('bu1');
+            function jc(){
+                var jiecheng=1;
+                for(var i=1;i<=parseInt(_te1.value);i++){
+                    jiecheng*=i;
+                }
+                return jiecheng;  
+            }                        
+            _bu.onclick=function(){alert(jc());};               
+        };        
+    </script>   
+</head>
+<body>
+    <form>
+        9.---输入一个数，计算阶乘<input id="te"type="text" >
+        <input type="button" id="bu1"value="按钮">
+    </form>
+    <hr/>
+    <!-- 10.山上有一口缸可以装50升水，现在有15升水。老和尚叫小和尚下山挑水，每次可以挑5升。问：小和尚要挑几次水才可以把水缸挑满？通过编程解决这个问题。 -->
+    <script>
+        function f10(){
+            return (50-15)/5;
+        }
+        document.write("10.---"+f10());
+        document.write("<hr>");   
+    </script>
+
+    <!-- 11.定义一个含有30个整型元素的数组，按顺序分别赋予从2开始的偶数；然后按顺序每五个数求出一个平均值，放在另一个数组中并输出。 -->
+    <script>
+        function f11(){
+            var _arr1=[2],sum=null;
+            var _list=[];
+            for(var i=1;i<30;i++){
+                _arr1[i]=_arr1[i-1]+2;           
+                if(i%5===4){
+                    sum=(_arr1[i]+_arr1[i-1]+_arr1[i-2]+_arr1[i-3]+_arr1[i-4])/5; 
+                    _list.push(sum);                     
+                }     
+            }
+            return _list;
+        }
+        document.write("11.---"+f11());
+        document.write("<hr>");
+    </script>
+    <!-- 12.通过循环按行顺序为一个5×5的二维数组a赋1到25的自然数，然后输出该数组的左下半三角。 -->
+    <script>
+    
+    </script>
+
+    <!-- 19.有一个从小到大排好序的数组。现输入一个数，要求按原来的规律将它插入数组中 -->
+    <script>
+        function f19(a){
+            var arr=[1,4,12,19,28,32,55];
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]>a){
+                    arr.splice(i,0,a);
+                    break;
+                }
+            }
+            return arr;
+        }
+        document.write("19.---"+f19(15));
+        document.write("<hr>");  
+    </script>       
+</body>
+</html>
