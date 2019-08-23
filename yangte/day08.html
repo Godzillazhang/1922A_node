@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var _arr=[[4,5,2],[45,21,4]];//二维数组
+        console.log(_arr[1][1]);//第二个元素第二个值
+        //数组是有序内存单元集合，存的慢，读取快
+        // 字面量 无序 存的快，读取慢
+        var _obj={};//字面量，类似于字典
+        var _obj1={
+            k1:"value1",
+            k2:"value2",
+            k4:"value4",
+            k7:"value7",
+            
+        }
+        console.log(_obj1.k2);//访问k2，书写简单，不灵活
+        console.log(_obj1["k1"]);//访问k1，访问速度快，更灵活，可以使用变量
+        console.log(_obj1);
+        //添加一个属性值，加在最后
+        _obj1.k5="value";
+        console.log(_obj1);
+        //修改
+        _obj1.k5="value5";
+        console.log(_obj1);
+        //利用for-in遍历出键值对
+        function reader(){
+            for(var i in _obj1 ){
+                console.log(i,_obj1[i]);
+            }
+        }
+        reader();
+        // ----------------------去重--------------
+
+        // function r1(){
+        //     var _arr=[1,89,45,45,45,1,2,3,2,2,1,2,1,2,89];
+        //     var _temp=[];
+        //     var obj={};
+        //     for(var i of _arr){
+        //         if(!obj[i]){
+        //             _temp.push(i);
+        //             obj[i]=1;
+        //         }
+        //     }
+        //     console.log(_temp);
+        // }
+        // r1();
+
+        // function r1(){
+        //     var _arr=[1,89,45,45,45,1,2,3,2,2,1,2,1,2,89];
+        //     var _temp=[];
+        //     _temp=new Set(_arr);
+        //     console.log(_temp);
+        // }
+        // r1();
+        function r1(){
+            var _arr=[1,89,45,45,45,1,2,3,2,2,1,2,1,2,89];
+            var _temp=[];
+            var obj={};
+            for(var i=0;i<_arr.length;i++){
+                _obj[_arr[i]]=_arr[i];
+            }
+            for(var k in _obj){
+                _temp.push(_obj[k]);
+            }
+            console.log(_temp);
+        }
+        r1();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
