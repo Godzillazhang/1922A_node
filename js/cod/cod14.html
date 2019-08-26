@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>显示动态时间</title>
+
+    <style>
+            #_div{
+                width: 200px;
+                height: 200px;
+                background: bisque;
+                color: #000;
+            }
+    </style>
+
+    <script type="text/javascript">
+            function getDate(){//得到时间并写入div
+                
+                var date=new Date();//获取道歉时间
+               
+                var date1=date.toLocaleString();//格式化本地时间
+                
+                var div1=document.getElementById("_div");//获取div
+                
+                div1.innerHTML=date1;//将时间写入div
+            }
+            setInterval("getDate()",1000)//用定时器每1秒向div写入时间
+    </script>
+
+
+</head>
+<body>
+    <div id="_div"></div>
+
+
+
+
+</body>
+</html>
