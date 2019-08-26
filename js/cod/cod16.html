@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{width: 100%;height: 100%;margin: 0;padding: 0;}
+        div{width: 15px;height: 15px;position: absolute;}
+    
+    </style>
+    
+    <script>
+        function createFlower(_x,_y){
+            var _flower=document.createElement("div")
+            _flower.style.left=_x+"px";
+            _flower.style.top=_y+"px";
+            _flower.style.backgroundColor="rgb("+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+","+Math.floor(Math.random()*256)+")";
+
+            return _flower;
+        }
+        
+        function bodyMouseMove(){
+            var _body=document.getElementsByTagName("body")["0"];
+            _body.onmousemove=function(e){
+                var _x,_y;
+                e=e||window.event;
+                _x=e.offsetX;
+                _y=e.offsetY;
+                this.appendChild(createFlower(_x,_y))
+            };
+        }
+
+        function drop(){
+            var _body=document.getElementsByTagName("body")[0];
+            var _height=document.documentElement.clientHeight||document.body.clientHeight;
+            var _time=window.setInterval(function(){
+                var _flower=document.getElementsByTagName("div");
+                for(var i=0;i<_flower.length;i++){
+                    _flower[i].style.top=_flower[i].offsetTop+5+"px";
+                    if(_flower[i].offsetTop>=_height){
+                        _body.removeChild(_flower[i]);
+                    }
+                }
+            },30);
+        }
+            window.onload=function(){
+                bodyMouseMove();
+                drop();
+            };
+
+
+
+    </script>
+</head>
+<body>
+    
+    
+</body>
+</html>
