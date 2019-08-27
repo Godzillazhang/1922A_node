@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+        <style>
+            html,body{width: 100%;height: 100%;margin: 0;padding: 0;}
+           
+            #demo1{width: 500px;height: 500px;background: powderblue;position: absolute;}
+            #demo{width: 200px;height: 100px;background: orange;position: absolute;}
+        
+        </style>
+
+        <script>
+            window.onload=function(){
+                var _demo=document.getElementById("demo");
+                _demo.onmousedown=function(_event){
+                    var _a,_b;
+                    _event=_event||window.event;
+                    _a=event.offsetX;
+                    _b=event.offsetY;
+                    document.onmousemove=function(e){
+                        e=e||window.event;
+                        _demo.style.left=e.clientX-_a+"px";
+                        _demo.style.top=e.clientY-_b+"px";
+
+                    };
+                };
+                document.onmouseup=function(){
+                    this.onmousemove=null;
+                };
+            };
+
+        
+        </script>
+</head>
+<body>
+    
+    
+        
+        <div id="demo1">
+                <div id="demo"></div>
+            </div>
+            
+       
+    
+    
+
+
+</body>
+</html>
