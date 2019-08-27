@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    html,body{width: 100%;height: 100%;margin: 0;padding: 0;}
+    
+
+   .flower{height: 5px;width: 5px;position: absolute;}
+
+    </style>
+
+    <script type="text/javascript">
+    window.onload=function(){
+        var _body=document.getElementsByTagName("body")[0];
+        document.onmousemove=function(e){
+            e=e||window.event;
+            //e.stoppropagation();非低版本ie阻止事件冒泡
+            //e.cancelBubble=true;低版本ie阻止事件冒泡
+           
+            
+            console.log(this.id);
+            console.log(e.target.id);
+            
+            //创建花瓣
+            _body.appendChild(document.createElement("div"));
+            _body.children[_body.children.length-1].className="flower";
+            _body.children[_body.children.length-1].style.left=e.offsetX+"px";
+            _body.children[_body.children.length-1].style.top=e.offsetY+"px";
+            _body.children[_body.children.length-1].style.backgroundColor="#"+Math.floor(Math.random()*16760831).toString(16);
+            //offsetX|Y不是相对于outer的坐标，而是相对于鼠标点击的对象坐标
+            
+        };
+
+    };
+    </script>
+</head>
+<body>
+ 
+</body>
+</html>
