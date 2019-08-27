@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{margin: 0;padding: 0;}
+        
+        #container{height: 300px;width: 300px;overflow: hidden;position: relative;float: left;margin-top:100px; }
+
+        #container img{height: 100%x;width: 100%;border:0;float: left;}
+
+        #container span{display: none;width: 60px;height: 60px;background: oldlace;position: relative;}
+
+        #expand{width: 500px;height: 500px;overflow: hidden;position: relative;float: left;}
+
+        #expand img{position: absolute;width: 1500px;height: 1500px;border: none;}
+
+
+    
+    </style>
+
+    <script>
+        function events(){
+            var _container=document.getElementById("container");
+            var _frame=document.getElementById("frame");
+            _container.onmouseover=function(){
+                _frame.style.display="block";
+           
+            };
+            
+            _container.onmousemove=function(e){
+                e=e||width.event;
+                _frame.style.left=e.clientX-_frame.offsetWidth/2+"px";
+                _frame.style.top=e.clientY-this.offsetTop-_frame.offsetHeight/2+"px";
+
+                var _expand=document.getElementById("expand");
+                _expand.children[0].style.left=-_frame.offsetLeft*5+"px";
+                _expand.children[0].style.top=-_frame.offsetTop*5+"px";
+            };
+        };
+            window.onload=function(){
+                events();
+            };
+        
+        </script>
+</head>
+<body>
+    <div id="container">
+        <img src="F:\git\Qianfeng\js\js2\kate.jpg" alt="">
+        <span id="frame"></span>
+    </div>
+    
+    <div id="expand">
+        <img src="F:\git\Qianfeng\js\js2\kate.jpg" alt="">
+    </div>
+    
+</body>
+</html>
