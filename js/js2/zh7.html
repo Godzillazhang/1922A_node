@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #as{width: 100px;height: 100px;background: powderblue;}
+        
+    </style>
+
+    <script>
+        //事件监听器可以给同一个元素的相同的事件类型添加多个事件处理函数。
+        //而用onclick这种方式不能给同一个元素的相同事件类型，添加多个事件处理函数。
+           
+        //事件监听器移除：removeEventlistener(三个参数)。   
+            window.onload=function(){
+                var _as=document.getElementById("as");
+                _as.addEventListener("click",function(){
+                    console.log("aa")
+                },true);
+
+                _as.addEventListener("click",function(){
+                    console.log("bb")
+                },true);
+
+                function asd(){
+                    console.log("mouseover");
+                }
+                _as.addEventListener("mouseover",asd,true);
+                _as.addEventListener("click",function(){
+                    _as.removeEventListener("mouseover",asd,true);
+                },true);
+
+
+            }
+    
+    
+    
+    </script>
+</head>
+<body>
+    <div id="as"></div>
+    
+</body>
+</html>
