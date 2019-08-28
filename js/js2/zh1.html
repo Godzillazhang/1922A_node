@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+          html,body{
+            width:100%; height:100%; margin:0; padding:0; position:relative; overflow:hidden;
+        }
+        span{
+            display:block; width:40px; height:40px; font-size:18px; color:#555;
+            text-align:center; line-height:26px; position:absolute; top:0;
+            border:solid 1px #ccc; border-radius:5px;
+        }
+    
+    </style>
+
+    <script type="text/javascript">
+    /*
+       
+
+    
+    
+    
+    
+    
+    
+    
+    
+    */
+
+            function compare(_asscii){
+            
+                var _body=document.getElementsByTagName("body")[0];
+            
+                var _char=String.fromCharCode(_asscii);
+           
+                var _chars=_body.children;
+           
+                for(var i=0;i<_chars.length;i++){
+            
+                    if(_char===_chars[i].innerText){
+              
+                        _body.removeChild(_chars[i]);//有可能连续删除
+         
+                        break;
+                    }
+                }
+            }
+
+            function events(){
+               
+                document.onkeydown=function(e){
+                   
+                    e=e||window.event;
+                    
+                    compare((e.keyCode || e.which));//获取键码值的浏览器兼容
+                };
+            }
+
+            function drop(){//要持续随机下去，不能之随机一个，需要一个定时器
+                var _body=document.getElementsByTagName("body")[0];
+               
+                var _height=document.documentElement.clientHeight||document.body.clientHeight;
+                
+                for(var i=0;i<_body.children.length;i++){
+                 
+                    _body.children[i].style.top=_body.children[i].offsetTop+35+"px";
+                 
+                    if(_body.children[i]>=_height){
+                
+                        _body.removeChild(_body.children[i]);
+                    }
+                }
+            }
+
+
+
+
+            function randow(){
+               
+                var _body=document.getElementsByTagName("body")[0];
+                
+                var _width=document.documentElement.clientWidth||document.body.clientWidth;
+               
+                var _timr=window.setInterval(function(){
+                    
+                    drop();//让所有字符往下落，
+
+                    var _span=document.createElement("span");
+                   
+                    _span.innerText=String.fromCharCode(Math.floor(Math.random()*26)+65);
+                    
+                    _body.appendChild(_span);//将随机出来的字符放入body中
+
+                    _span.style.left=Math.floor((_width-_span.offsetWidth)*Math.random())+"px";
+                            //给随机出来的字符，在随机一个位置。
+                },600)
+            }
+
+            window.onload=function(){
+
+                    events();
+                    randow();
+            }
+
+    </script>
+</head>
+<body>
+    <span>a</span>
+  
+</body>
+</html>
