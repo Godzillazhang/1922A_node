@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*正则表达式符号:
+            ():正则表达式分组,"组"匹配的结果会被缓存到正则的结果中，
+            |:表示或者的意思.
+            []:也表示或者的意思.
+            [a-z0-9%]:a到z或0-9或%或-
+            [^0-9a-z]:表示非0-9且非a-z
+            
+        正则表达式的方法:
+            _reg.exec(参数是字符串);
+            execute:执行的意思,返回值是个类似数组的结果
+            返回结果:
+                    结果中的第一个元素表示匹配的结果
+                    第二个或以后的数组元素表示组
+                    可以通过数组的方式来获取
+                    也可以通过正则表达方式的类RegExp.$1到$9
+            */
+
+
+            function j1(){
+                var a="assd assd deng";
+                var reg=/(s)+(d)/g;
+                console.log(reg.exec(a));
+                var _reg=reg.exec(a);
+                console.log(_reg[10]);//可以访问到9个以后
+                console.log(RegExp.$1);//可以访问到第九个
+            }
+                //j1();
+
+          function j2(){
+              var reg=/^[0-9a-zA-Z_]+@[0-9A-Za-z]+(\.[a-z0-9A-Z]+)+$/g;
+              var a=window.prompt("","");
+              if(reg.test(a)){
+                  alert("正确")
+              }else{
+                  alert("错误")
+              }
+          }j2();
+            
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
