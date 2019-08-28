@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+            function s1(){
+                var qwq=/ /;
+                var s="afdffffd afdffffd";
+                var qwq=/^a/g;//字符串开始的" a "
+                var qwq=/d$/g;//字符串结束的" d "
+                console.log(s.match(qwq));
+            }
+                //s1();
+
+            function s2(){
+                var s="afdffffd afdffffd zhang@lookout.com"
+                var qwq=/\w+/g;     // "/\w+/g"
+                console.log(s.match(qwq));
+            }
+                //s2();
+
+
+            function s3(){
+                var s="afdffffd afdffffd zhang@lookout.com"
+                var qwq=/\b\w|\w\b/g;
+                console.log(s.match(qwq));
+            }
+                //s3();
+
+
+            function s4(){
+                var s="afdffffd afdffffd"
+                var qwq=/f?/g;     // " f "
+                console.log(s.match(qwq));
+            }
+                //s4();
+
+            function s5(){
+                var s="affd afffd"
+                var qwq=/f+/g;     
+                console.log(s.match(qwq));
+
+            }
+                //s5();
+
+            function s6(){
+                var s="afffd affffd"
+                var qwq=/f{3}/g;    //三个"f"
+                console.log(s.match(qwq));
+
+            }
+                //s6();
+
+            function s7(){
+                var s="afffd affffffffffffffd"
+                var qwq=/f{3,}/g;     //所有"f"
+                console.log(s.match(qwq));
+
+            }
+                //s7();
+
+            function s8(){
+                var s="afffd affffffffffffffd"
+                var qwq=/f{1,4}/g;     
+                console.log(s.match(qwq));
+
+            }
+                //s8();
+
+            function s9(){
+                var s="124145155sdafsfffsa" 
+                console.log(s.search(/\d/g));
+            }
+                //s9();
+
+            function s10(){
+                var s="dsadjkas&kddd#df" //符号分割字符
+                console.log(s.split(/\W/g));
+            }
+                //s10();
+
+            
+/////////////////////////////////////////////////////////
+
+
+
+            function w1(){
+                var a="assd assd"
+                var reg=/s+/g;
+                console.log(reg.exec(a));
+            }
+                //w1();
+
+
+                function w2(){
+                var a="assd assd"
+                var reg=/(s)+/g;
+               var _reg=reg.exec(a);
+               console.log(_reg[10]);
+               console.log(RegExp.$1);
+            }
+                //w2();
+             
+
+               function w3(){//手机号码表达式
+                   var reg=/^1[3-9]\d{8}$/g;//非0-2 a-z要写数字和字母
+                   var s=window.prompt("","");
+                    if(reg.test(s)){
+                        alert("正确")
+                    }else{
+                        alert("错误")
+                    }
+               }   
+                //w3();
+                
+                
+                
+                //身份证/\d{17}\d|x/g;
+                function w4(){
+                    var reg=/^[a-zA-Z0-9_]+@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)+$/g;//邮箱表达式
+                   var s=window.prompt("","");
+                    if(reg.test(s)){
+                        alert("正确")
+                    }else{
+                        alert("错误")
+                    }
+               }   
+                //w4();
+                  
+
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
