@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            html,body{width: 100%;height: 100%;margin: 0;padding: 0;}
+
+        
+            #s1{
+            width:50px; height:50px; background-color:red; position:absolute;
+            border-radius: 50%;}
+            .s2{width: 2px;height: 2px;position: absolute;background-Color: darksalmon;
+                border-radius: 50%;}
+    </style>
+    <script>
+    function a1(body){
+        let width=document.documentElement.clientWidth||document.body.clientWidth;
+        let su=Math.floor(width/3);
+        let s2;
+        for(let i=0;i<su;i++){
+            s2=document.createElement("div");
+            s2.className="s2";
+            body.appendChild(s2);
+            s2.style.left=i*3+"px";
+            s2.style.top=100+20*Math.sin(i*2*Math.PI/100)+"px";
+
+        }
+    }
+    function a2(body){
+        let b1=document.createElement("div");
+        b1.id="s1";
+        b1.style.left=-25+"px";
+        b1.style.top="75px";
+        body.appendChild(b1);
+    }
+    function a3(){
+        let s1=document.getElementById("s1");
+        let i=0;
+        let a31=window.setInterval(function(){
+            s1.style.left=s1.offsetLeft+3+"px";
+            s1.style.top=75+20*Math.sin(i++*2*Math.PI/100)+"px";
+        },30);
+    }
+    function a4(){
+        let body=document.getElementsByTagName("body")[0];
+        a1(body);
+        a2(body);
+        a3();
+    }
+    window.onload=a4;
+
+
+
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
