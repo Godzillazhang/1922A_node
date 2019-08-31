@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            html,body{width: 100%;height: 100%;margin: 0;padding: 0;}
+
+            #s1{width: 500px;height: 500px;position: relative;background: cornflowerblue;border: 1px solid #000}
+
+            #s1 div{width: 100px;height: 100px;position: absolute;background: darksalmon;border: 1px solid #000}
+
+
+
+    </style>
+    <script>
+        function cre(body){
+            let s1=document.createElement("div");
+            s1.id="s1";
+            body.appendChild(s1);
+
+            let s2=document.createElement("div");
+            s2.style.left=0;
+            s1.appendChild(s2);
+
+            s2=document.createElement("div");
+            s2.style.right=0;
+            s1.appendChild(s2);
+
+        }
+
+            function spo(nod){
+                let sig=1;
+                let tim=window.setInterval(function(){
+                    s1.style.margin="auto"
+                    nod[0].style.left=nod[0].offsetLeft+5*sig+"px";
+                    nod[1].style.left=nod[1].offsetLeft-5*sig+"px";
+                    if(nod[1].offsetLeft-nod[0].offsetLeft<=nod[0].offsteWidth){
+                     sig*=-1;
+
+                    }
+                    if(nod[0].offsetLeft<=0){
+                        sig*=-1;
+                    }
+                },30)
+            }
+
+            function min(){
+                let body=document.getElementsByTagName("body")[0];
+                cre(body);
+                spo(body.children[0].children);
+                
+            }
+                window.onload=min;
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
