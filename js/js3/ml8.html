@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            html,body{width: 100%;height: 100%;margin: 0;padding: 0;}
+
+            div{width: 50px;height: 50px;position: relative;background: cornflowerblue;}
+    
+    </style>
+
+    <script>
+    function create(body){
+        let cre=document.createElement("div");
+        body.appendChild(cre)
+    }
+
+    function move(tar){//匀速
+        let width=document.documentElement.clientWidth||document.body.clientWidth;
+        let tim=window.setInterval(function(){
+            tar.style.let=tar.offsetLeft+5+"px";
+            if(tar.offsetLeft+tar.offsetwidth>=width){
+                window.clearInterval(tim);
+            }
+        },20);
+    }
+
+    function move(tar){//匀加速
+        let width=document.documentElement.clientWidth||document.body.clientWidth;
+        let spe=0;
+        let tim=window.setInterval(function(){
+            tar.style.left=tar.offsetLeft+(spe+0.5)+"px";
+            if(tar.offsetLeft+tar.offsetwidth>=width){
+                window.clearInterval(tim);
+            }
+        },20);
+    }
+
+    function move(tar){//变加速
+        let width=document.documentElement.clientWidth||document.body.clientWidth;
+        let spe=10;
+        let tim=window.setInterval(function(){
+            tar.style.left=tar.offsetLeft+(Math.random()*spe)+"px";
+            if(tar.offsetLeft+tar.offsetwidth>=width){
+                window.clearInterval(tim);
+            }
+        },20);
+    }
+
+    function main(){//匀速运动
+        let body=document.getElementsByTagName("body")[0];
+        create(body);
+        move(body.children[0]);
+
+    }   
+    window.onload=main;
+
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>
