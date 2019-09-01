@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{margin: 0;padding: 0;text-align:center;background: rgb(204, 204, 204)}
+
+        
+       
+        #s1{width:100%px; height:700px; margin: auto;}
+        
+        #s1 div:nth-child(1) img{width: 100%;height: 700px;opacity:0.2;}
+        
+        #s1 div:nth-child(2){margin: auto;}
+
+        #s1 div:nth-child(2) img{height:50px;width:110px;margin:1px 4px 2px 2px;}
+        
+    </style>
+    <script>
+      let xs;
+
+      function a1(body){
+          let div=document.createElement("div");//创建body下的容器
+          
+          div.id="s1";
+          body.appendChild(div);
+
+          let a2=document.createElement("div");//创建容器下的第一个div
+          div.appendChild(a2);//将创建好的子节点放入body里的div中
+
+          let img=document.createElement("img");//创建一个img节点
+          img.src="F:/git/Qianfeng/js/img/01.png";
+          a2.appendChild(img);
+
+          let a3=document.createElement("div");
+          div.appendChild(a3);
+
+          
+          for(let i=0;i<13;i++){
+              img=document.createElement("img");
+              img.src="F:/git/Qianfeng/js/img/0"+(i+1)+".png";
+              a3.appendChild(img);
+          }
+      }
+    
+
+      function b1(a,b){
+          b2=window.setInterval(function(){
+              window.clearInterval(b2);//延时器
+              if(b>5){
+                  b=0;
+              }
+              a.src="F:/git/Qianfeng/js/img/0"+(b+1)+".png";
+              b3(a,b+1);
+          },2000)//延时两秒
+      }
+
+    function b3(a,b){//透明度
+          let b3=0.2;
+          b2=window.setInterval(function(){
+              a.style.opacity=(b3+=0.08);
+              if(b3>=1){//当前图片播放完毕
+                  window.clearInterval(b2);
+                  b1(a,b);//开始播放下一张
+              }
+          },30);
+      }
+
+      function c1(a3){
+          for(let i=0;i<a3.children.length;i++){
+              a3.children[i].onmouseover=function(){
+                  a3.parentNode.children[0].children[0].src=this.src;
+                  window.clearInterval(b2);
+                  b3(a3.parentNode.children[0].children[0],i+1);
+
+              }
+          }
+      }
+      
+      function d1(){
+          let body=document.getElementsByTagName("body")[0];
+          a1(body);
+          b3(body.children[0].children[0].children[0],1);
+          c1(body.children[0].children[1]); 
+        }
+      window.onload=d1;
+      
+
+
+    
+    </script>
+</head>
+<body>
+    
+    
+</body>
+</html>
