@@ -1,0 +1,84 @@
+s<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      html,body{width: 100%;height: 100%;margin: 0;padding: 0;overflow: hidden;}
+
+      span{width: 50px;height: 50px;font-size: 20px;color:#000;text-align: center;
+            line-height: 50px;position: absolute;display: block;border: 2px solid #cccccc;
+              border-radius: 10px;}
+  </style>
+
+  <script>
+
+    function compare(asscii){
+      var body=document.getElementsByTagName("body")[0]
+      var char=String.fromCharCode(asscii);//转成字符
+      var chars=body.children;//转成字符和body内容比对
+      for(var i=0;i<chars.length;i++){
+        if(char===chars[i].innerText){
+          body.removeChild(chars[i]);
+          break;
+        }
+      }
+    }
+    
+   
+    function event(){
+    document.onkeydown=function(e){              //window.onload=function(){
+          e=e||window.event;//兼容
+            compare((e.keyCode||e.which));       // console.log(e.keyCode);//获取键码值
+                                                 // e.which;
+          }                                      // (e.keyCode||e.which)//兼容浏览器
+    }
+
+
+
+    function drop(){
+        var body=document.getElementsByTagName("body")[0];
+        var height=document.documentElement.clientHeight||document.body.clientHeight;//屏幕高度
+        for(var i=0;i<body.children.length;i++){
+          body.children[i].style.top=body.children[i].offsetTop+35+"px";
+          if(body.children[i]>=height){
+            body.removeChild(body.children[i]);
+          }
+        }
+      }
+
+
+    function random(){//定时器
+      var body=document.getElementsByTagName("body")[0];
+      var width=document.documentElement.clientWidth||document.body.clientWidth;//屏幕宽度
+          var timr=window.setInterval(function(){
+            drop();
+            var span=document.createElement("span")//创建一个span
+            span.innerText=String.fromCharCode(Math.floor(Math.random()*26)+65);//span内随机出现英文字母
+            span.style.left=Math.floor((width-span.offsetWidth)*Math.random())+"px";
+            body.appendChild(span)//把span放进body 
+          },1000);
+    }     
+       
+       
+       
+       
+       
+       window.onload=function(){
+        event();
+        random();
+       }
+
+
+
+
+
+
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
