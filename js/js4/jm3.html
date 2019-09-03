@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    
+    
+    
+    
+    
+    </style>
+    <script>
+        window.localStorage.setItem("UI",'[{"ID":"123","couter":5,"config":"红|01.png|M"}]');//localStorage库
+
+        function Cart(){
+            this.storage=null;
+            this.take=function(){//从浏览器中取出localstorage的所有数据
+                this.storage=window.localStorage.getItem("UI");//如果是新用户浏览器中没有键名"UI"的数据
+                                                                //返回结果null
+                if(!this.storage){
+                    this.storage=[];//如果是新用户-初始化一个新的空数组
+                }else{this.storage=JSON.parse(this.storage);
+                }
+                console.log(this.storage);
+            }
+            this.save=function(){
+                window.localStorage.setItem("UI",JSON.stringify(this.storage));
+            }
+            this.plus=function(_identify,_counter,_config){//将客户选择的单品放入购物车
+                
+                //放入购物车前，需要检测购物车中是否有相同东西
+                //如果有相同商品，数量增加——couter
+                //如果没有相同的商品，将商品的信息存入localstorage里
+                
+                let _has=0;
+                this.take();//取出数据，被自动编程json格式对象
+                for(var i=0;i<this.storage.length;i++){
+                    if(this.storage[i]["ID"]===_identify && this.storage[i].config===_config){
+                        this.storage[i].counter+=_counter;//更新
+                        _has=1;
+                        break
+                    }
+                }
+                if(_has===0){
+                    this.storage.push({
+                        "ID":_identify,
+                        "config":_config,
+                        "counter":_counter
+                        
+                    });
+                }
+                this.save();
+            }
+            this.subtract=function(_identify,_counter,_config){//减少单品数量
+                this.take();
+                for(let i=0;i<this.storage.length;i++){
+                    if(this.storage[i]["ID"]===_identify && this.storage[i].config===_config){
+                        if(this.storage[i].counter<=_counter){
+                            //直接删除
+                            this.storage.splice(i,1);
+                        }else{
+                            this.storage[i].counter-=_counter;
+                        }
+                        this.save();
+                        break;
+                    }
+                }
+            }
+            this.statistics=function(){//统计购物车里的商品总数
+                let _summary=0;
+                this.take();
+                for(var i=0;i<this.storage.length;i++){
+                    _summary+=this.storage[i].counter;
+                }
+                return _summary;
+            };
+            this.reset=function(_identify,_counter,_config){
+                if(/^[1-9]\d*$/g.test(_counter+"")){
+                    this.take();
+                    for(var i=0;i<this.storage.length;i++){
+                        if(this.storage[i]["ID"]===_identify && this.storage[i].config===_config){
+                            this.storage[i].counter=_counter;
+                            this.save();
+                            break;
+                        }
+                    }
+
+                }else{
+                    alert("数量错误");
+                }
+            }
+            this.remove=function(_identify,_config){//移除商品信息
+                this.take();
+                for(var i=0;i<this.storage.length;i++){
+                    if(this.storage[i]["ID"]===_identify && this.storage[i].config===_config){
+                        this.storage.splice(i,1);
+                        this.save();
+                        break;
+                    }
+                }
+            }
+            this.clear=function(){//清空购物车
+                this.storage=[];
+                this.save();
+            }
+
+        }
+        window.onload=function(){//测试
+            const _cart=new Cart();
+        
+
+
+
+        var _btns=document.getElementsByTagName("input");
+        for(var i=0;i<_btns.length;i++){
+            _btns[i].onclick=function(){
+                switch(this.value){
+                    case "+":
+                        _cart.plus(this.getAttribute("identify"),1,"");
+                        break;
+                    case "-":
+                        _cart.subtract(this.getAttribute("identify"),1,"");
+                    case "remove":
+                        _cart.remove(this.getAttribute("identify"),"");
+                        break;
+                }
+            }
+            if(_btns[i].type==="text"){
+                _btns[i].onchange=function(){
+                    _cart.reset(this.getAttribute("identify"),Number(this.value),"");
+
+                }
+            }
+        }
+    }
+
+</script>
+</head>
+<body>
+    <img src="" alt="">
+    <input type="button" value="+" identify="123">
+    <input type="text"  value="1" identify="123">
+    <input type="button" value="-" identify="123">
+    <input type="button" value="remove" identify="123">
+    
+</body>
+</html>
