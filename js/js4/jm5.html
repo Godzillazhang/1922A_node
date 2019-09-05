@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+            
+        
+    
+    
+    </style>
+    <script>
+        function cart(){
+            this.storage=null;
+            this.qu=function(){
+                this.storage=window.localStorage.getItem("1997");//丛浏览器里取出localstorage的数据
+                console.log(this.storage)
+                //如果是新用户浏览器中没有名为1997的数据
+                //返回值为null
+                if(!this.storage){
+                    this.storage=[]//如果是新用户生成一个新的空数组
+                }
+
+            };
+
+            this.save=function(){
+                window.localStorage.setItem("1997",JSON.stringify(this.storage));
+                console.log("------------------------");
+                console.log(this.storage);
+            }
+
+            
+            this.plus=function(_id,_shu,_pei){//把id，数量，配置型号，//把商品放入购物车
+                //放入购物车前检测里面是否有相同商品
+                //如有相同，_shu数量增加
+                //如没有相同，直接把信息存入localstorage里
+                let _has=0;
+                this.tack();//取出数据
+                for(var i=0;i<this.storage.length;i++){
+                    if(this.storage[i]["ID"]===_id && this.storage[i].pei===_pei){
+                        this.storage[i].shu+=_shu;
+                        _has=1;
+                        break;//跳出循环
+                    }
+                }
+                if(_has===0){
+                    this.storage.push({
+                        "id":_id,
+                        "pei":_pei,
+                        "shu":_shu//id,配置，数量
+                    })
+                }
+            }
+        }
+        
+        
+        
+        window.onload=function(){
+            const _cart=new cart();
+            _cart.plus("1997",2,"黑色|L|加厚");
+        }
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
