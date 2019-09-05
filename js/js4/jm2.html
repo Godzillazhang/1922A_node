@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            span{position: absolute;left: 0;top: 200px;background: cadetblue;display: block;width: 100px;height: 100px;}
+    
+    </style>
+    <script>
+        function slider(_element){
+            this.timer;
+            this.time=600;
+            this.hz=30;
+            this.times=this.time/this.hz;
+
+            this.calculate=function(_css){
+                for(var k in _css){
+                    if(k!=="left" && k!=="top"){
+                        _element.style[k]=_css[k];
+                    }else{
+                        if(_css.left){
+                            this.hs=(parseInt(_css.left)-_element.offsetLeft)/this.times;
+                        }
+                        if(_css.top){
+                            this.vs=(parseInt(_css.top)-_element.offsetTop)/this.times;
+
+                        }
+                    }
+                }
+            }
+            this.move=function(_css){
+                var _me=this,_counter=1;
+                this.calculate(_css);
+                this.timer=window.setInterval(function(){
+                    if(_me.hs){
+                        _element.style.left=_element.offsetLeft+_me.hs+"px";
+                    }
+                    if(_me.vs){
+                        _element.style.top=_element.offsetTop+_me.vs+"px";
+                    }
+                    if(_counter++>=_me.times){
+                        window.clearInterval(_me.timer);
+                    }
+                },this.hz)
+            }
+        }
+
+            window.onload=function(){
+                var _element=document.getElementsByTagName("div")[0];
+                var _slider=new slider(_element);
+                _slider.move({
+                    display:"block",
+                    width:"100px",
+                    height:"100px",
+                    position:"absolute",
+                    left:"1000px",
+                    background:"pink"
+                });
+
+                new slider(document.getElementsByTagName("span")[0]).move({
+                    left:"200px",
+                    top:"500px"
+                })
+            }
+    
+
+    </script>
+</head>
+<body>
+    <div>
+        <span></span>
+    </div>
+    
+</body>
+</html>
