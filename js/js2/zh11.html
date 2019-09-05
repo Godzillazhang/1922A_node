@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{margin: 0;padding: 0;}
+        
+        #s1{height: 200px;width: 300px;overflow: hidden;position: relative;float: left;margin-top:100px; }
+
+        #s1 img{height: 100%x;width: 100%;border:0;float: left;}
+
+        #s1 span{display: none;width: 80px;height: 50px;background: oldlace;position: relative;}
+
+        #s3{width:800px;height: 500px;overflow: hidden;position: relative;float: left;}
+
+        #s3 img{position: absolute;width: 2000px;height: 2000px;border: none;}
+
+
+    
+    </style>
+
+    <script>
+        function events(){
+            var _s1=document.getElementById("s1");
+            var _s2=document.getElementById("s2");
+            _s1.onmouseover=function(){
+                _s2.style.display="block";
+           
+            };
+            
+            _s1.onmousemove=function(e){
+                e=e||width.event;
+                _s2.style.left=e.clientX-_s2.offsetWidth/2+"px";
+                _s2.style.top=e.clientY-this.offsetTop-_s2.offsetHeight/2+"px";
+
+                if(_s2.offsetLeft<0){
+                    _s2.style.left=0;
+                }
+
+                if(_s2.offsetLeft>this.offsetWidth-_s2.offsetWidth){
+                    _s2.style.left=this.offsetWidth-+_s2.offsetWidth+"px";
+                }
+              
+                 var _s3=document.getElementById("s3");
+                _s3.children[0].style.left=-_s2.offsetLeft*5+"px";
+                _s3.children[0].style.top=-_s2.offsetTop*5+"px";
+            };
+        };
+            window.onload=function(){
+                events();
+            };
+        
+        </script>
+</head>
+<body>
+    <div id="s1">
+        <img src="F:\git\Qianfeng\js\js2\kate.jpg" alt="">
+        <span id="s2"></span>
+    </div>
+    
+    <div id="s3">
+        <img src="F:\git\Qianfeng\js\js2\kate.jpg" alt="">
+    </div>
+    
+</body>
+</html>
