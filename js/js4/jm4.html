@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        html,body{height: 100%;width: 100%;margin: 0;padding: 0;}
+
+        #img1{width: 600px;height: 300px;margin: auto;overflow: hidden;position: relative;}
+
+        .img2 img{width:600px;height: 300px; float: left;}
+
+        .img2{width: 3100px;height: 350px; margin: auto; overflow: hidden;position: relative; }
+    
+        
+    
+    </style>
+    <script>
+  
+function img11(elem){
+        this.tim1;
+        this.hz=30;
+
+        this.calculate=function(_css,time1){
+          
+            this.tim2=time1/this.hz;
+            for(var k in _css){
+                if(k!=="left" && k!=="top"){
+                    elem.style[k]=_css[k];
+                }else{
+                    if(_css.left){
+                        this.hs=(parseInt(_css.left)-elem.offsetLeft)/this.tim2;
+                    }
+                    if(_css.top){
+                        this.vs=(parseInt(_css.top)-elem.offsetTop)/this.tim2;
+                    }
+                }
+            }
+            
+        };
+        this.move=function(_css,time1,_fx){
+            var _me=this,_counter=1;
+            this.calculate(_css,time1);
+            this.tim1=window.setInterval(function(){
+                if(_me.hs){
+                    elem.style.left=elem.offsetLeft+_me.hs+"px";
+                }
+                if(_me.vs){
+                    elem.style.top=elem.offsetTop+_me.vs+"px";
+                }
+                if(_counter++>=_me.tim2){
+                    
+                    if(_me.hs){
+                        elem.style.left=_css.left;
+                    }
+                    if(_me.vs){
+                        elem.style.top=_css.top;
+                    }
+                    
+                    window.clearInterval(_me.tim1);//表示结束
+                    if(typeof _fx==="function"){
+                        _fx();
+                    }
+                }
+            },this.hz);
+        };
+        this.delay=function(_ms,_fx){
+            var _me=this;
+            this.tim1=window.setTimeout(function(){
+                window.clearTimeout(_me.tim1);
+                _fx();
+            },_ms);
+        };
+        this.clear=function(){
+            window.clearInterval(this.tim1);
+        };
+    }
+        
+    
+</script>
+
+    <script>
+        function an(n){
+            var element=document.getElementById("img1").children[0];
+            var _img1=new img11(element);
+            _img1.move({
+                left:-600*n+"px"
+            },200,function(){
+                _img1.delay(2000,function(){
+                    if(n>=4){
+                        n=-1;
+                    }
+                    an(n+1);
+                })
+            })
+        }
+        window.onload=function(){
+            an(1);
+        }
+
+     
+    
+    </script>
+</head>
+<body>
+    <div id="img1">
+        <div class="img2">
+            <img src="F:\git\Qianfeng\js\img\01.png" alt="">
+            <img src="F:\git\Qianfeng\js\img\02.png" alt="">
+            <img src="F:\git\Qianfeng\js\img\03.png" alt="">
+            <img src="F:\git\Qianfeng\js\img\04.png" alt="">
+            <img src="F:\git\Qianfeng\js\img\05.png" alt="">
+        </div>
+       
+    </div>
+    
+</body>
+</html>
