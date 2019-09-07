@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        html,body{
+            margin:0; padding:0;
+             /*letter-spacing:10px;*/
+            /*line-height:20px;*/
+         
+        }
+        div{
+            width:100%; height:30px;
+        }
+        div span{
+            padding:5px; font-size:14px; color:#555; float:left;
+        }
+        table{
+            width:100%;
+        }
+    </style>
+    <script type="text/javascript">
+      
+        
+
+        var  data={
+            title:["ID","name","price","sold","praise"],
+            list:[{
+                ID:20,name:"小米",price:"1000",sold:8000,praise:899
+            },{
+                ID:18,name:"华为",price:"2000",sold:8999,praise:5000
+            },{
+                ID:30,name:"苹果",price:"5000",sold:5000,praise:5000
+            },{
+                ID:31,name:"vivo",price:"1500",sold:2000,praise:1500
+            },{
+                ID:28,name:"oppo",price:"1300",sold:1000,praise:1000
+            }]
+        };
+        function createDataRow( data){
+            var  table=document.getElementsByTagName("table")[0];
+            var  tr, td;
+            for(var m=0;m< data.list.length;m++){
+                 tr=document.createElement("tr");
+
+                for(var n=0;n< data.title.length;n++){
+                     td=document.createElement("td");
+                     td.innerText= data.list[m][ data.title[1]];
+                     tr.appendChild( td);
+                }
+                 table.appendChild( tr);
+            }
+        }
+        function createTitleRow( data){
+           var  table=document.getElementById("products");
+            var  tr=document.createElement("tr"), th;
+            for(var i=0;i< data.title.length;i++){
+                 th=document.createElement("th");
+                 th.innerText= data.title[i];
+                 tr.appendChild( th);
+            }
+             table.appendChild( tr);
+            document.getElementsByTagName("body")[0].appendChild( table);
+        }
+        function sort( data, field, asc){
+            var  temp;
+            for(var m=0;m< data.list.length;m++){
+                for(var n=m+1;n< data.list.length;n++){
+                    if( data.list[m][ field]* asc> data.list[n][ field]* asc){
+                         temp= data.list[m];
+                         data.list[m]= data.list[n];
+                         data.list[n]= temp;
+                    }
+                }
+            }
+        }
+
+        function events( data){
+            var  products=document.getElementById("products");
+            var  container=document.getElementsByTagName("div")[0];
+             container.children[0].onclick=function(){
+                 products.innerHTML="";
+                sort( data,"ID",1);
+                createTitleRow( data);
+                createDataRow( data);
+            };
+             container.children[1].onclick=function(){
+                 products.innerHTML="";
+                sort( data,"price",-1);
+                createTitleRow( data);
+                createDataRow( data);
+            };
+             container.children[2].onclick=function(){
+                 products.innerHTML="";
+                sort( data,"sold",1);
+                createTitleRow( data);
+                createDataRow( data);
+            };
+             container.children[3].onclick=function(){
+                 products.innerHTML="";
+                sort( data,"praise",1);
+                createTitleRow( data);
+                createDataRow( data);
+            };
+        }
+        function main(){
+            createTitleRow( data);
+            createDataRow( data);
+            events( data);
+        }
+        window.onload=main;
+
+    </script>
+</head>
+<body>
+<div>
+    <span>根据ID升序排序</span>
+    <span>根据price降序排序</span>
+    <span>根据sold升序排序</span>
+    <span>根据praise升序排序</span>
+</div>
+<table id="products">
+
+</table>
+</body>
+</html>

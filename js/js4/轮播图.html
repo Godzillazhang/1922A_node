@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .imgs{width: 800px;height: 400px;position: relative;margin: auto;}
+
+        .list{width: 800px;height:400px;list-style: none;padding-left: 0px;}
+        
+        .imge{width: 100%;height: 100%;font-size: 20px;position: absolute;
+                color: #ffffff;opacity: 0;transition:all.2s;}
+        
+        .imge:nth-child(1){background:url("F:/git/Qianfeng/js/img/01.png");background-size:800px 400px;}
+        
+        .imge:nth-child(2){background:url("F:/git/Qianfeng/js/img/02.png");background-size:800px 400px;}
+        
+        .imge:nth-child(3){background:url("F:/git/Qianfeng/js/img/03.png");background-size:800px 400px;}
+        
+        .imge:nth-child(4){background:url("F:/git/Qianfeng/js/img/04.png");background-size:800px 400px;}
+        
+        .imge:nth-child(5){background:url("F:/git/Qianfeng/js/img/05.png");background-size:800px 400px;}
+            
+        .btn{width: 35px;height: 50px;position: absolute;top: 150px;
+                                            z-index: 10;opacity: 0.2;border-radius:0 50px 50px 0; }
+        .btn1{width: 35px;height: 50px;position: absolute;top: 150px;
+                                            z-index: 10;opacity: 0.2;border-radius:50px 0 0 50px;}                                  
+        
+        #goright{left: 0px;}
+
+        #goleft{right: 0px;}
+
+        .imge.active{z-index: 10;opacity: 1;}
+
+        .plis{list-style: none; padding-left: 0px; position: absolute;right: 20px;
+                                                        bottom: 20px;z-index: 1000;}
+
+        .lis{width: 10px;height: 10px; border:1px solid #fff; border-radius:50%;
+                                    float: left; margin-left: 10px;cursor: pointer;}
+        
+        .lis.active{background: rgba(255,255,255,0.4);}
+    </style>
+
+   
+</head>
+<body>
+    <div class="imgs">
+        <ul class="list">
+            <li class="imge active" ></li>
+            <li class="imge"></li>
+            <li class="imge"></li>
+            <li class="imge"></li>
+            <li class="imge"></li>
+        </ul>
+
+        <ul class="plis">
+            <li class="lis active" data-index='0'></li>
+            <li class="lis" data-index='1'></li>
+            <li class="lis" data-index='2'></li>
+            <li class="lis" data-index='3'></li>
+            <li class="lis" data-index='4'></li>
+        </ul>
+
+        <button type="button" class="btn" id="goright"> < </button>
+        <button type="button" class="btn1" id="goleft"> > </button>
+
+</div>
+
+    </div>
+    
+<script>
+        
+            var imges=document.getElementsByClassName('imge');//图片
+
+            var list=document.getElementsByClassName("lis");//小圆点
+
+            var goleftbt=document.getElementById('goleft');//右
+
+            var gorightbt=document.getElementById('goright');//左
+
+            var time=0;
+
+            var index=0;
+
+            
+            var clearActive=function(){ 
+                for(var i=0;i<imges.length;i++){
+                    imges[i].className='imge';
+
+                }
+            }
+
+            var goIndex=function(){
+                clearActive();
+                console.log(index)
+                list[index].className="lis active";
+                imges[index].className='imge active';
+            }
+
+            var goleft=function(){//左滑动
+                if(index<4){
+                    index++
+                }else{
+                    index=0
+                }
+                goIndex();
+            }
+
+            var goright=function(){//右滑动
+                if(index==0){
+                    index=4
+
+                }else{
+                    index--
+            }
+            goIndex();
+        }
+
+
+
+
+            goleftbt.addEventListener('click',function(){//左
+                goleft();
+            })
+
+            gorightbt.addEventListener('click',function(){//右
+                goright();
+            })
+
+           
+           for (var i=0;i<list.length;i++){
+               list[i].addEventListener('click',function(){//小圆点
+                var lisindex=this.getAttribute('data-index');
+                index=lisindex;
+                goIndex();
+               })
+           }
+            
+           
+           setInterval(function(){//定时器
+               time++
+                   if(time=20){
+                       goleft();
+                       time=0;
+               }
+           },2000)
+
+
+</script>
+</body>
+</html>
